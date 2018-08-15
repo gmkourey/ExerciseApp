@@ -6,10 +6,21 @@ Project Description: A health and fitness app that allows users to input their i
 Features We Plan to Have:
 
 1) Users come to site, choose goal, and input health information
+    - Create landing page
+    - Create large buttons on landing page where users can choose their goal
+    - Create form for users to input health information and push to Firebase
+
 2) Users can track their macros (protein, carbohydrates, fats, maybe calories). Potentially use chart.js to provide graphics.
+    - Use Google Auth to have users login so they can see their individual information
+    - Use Edamam's food database API to allow users to input foods and track total numbers of macros
+
 3) Users can get recommended recipes to fill thier macros (Edamam)
-4) Use the Google Maps or a hiking trails API to recommend places to walk/run
+    - Use Edamam's API to pull recipes that will help fill their macro totals for the day. These searches will be based on user data from previous inputs.
+
+4) Use the Google Maps or a hiking trails API to recommend places to walk/run based on users location
+
 5) Users can search YouTube videos of excersizes to target certain body parts
+    - Create buttons for users to select body parts to target and then provide YouTube videos wtih exercises to target that body part.
 
 API's to be used: Edamam, Google Maps or hiking trail, YouTube
 
