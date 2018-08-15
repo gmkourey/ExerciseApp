@@ -2,4 +2,16 @@ Title: Work In Progress
 
 Team Members: Grace Houghton Andrizzi, Delphine Urubera, Brogan Stich, Peter MacDonnell, Grant Kourey
 
-Project Description: 
+Project Description: A health and fitness app that allows users to input their information, set their goals, and track nutrition intake. 
+Features We Plan to Have:
+
+1) Users come to site, choose goal, and input health information
+2) Users can track their macros (protein, carbohydrates, fats, maybe calories). Potentially use chart.js to provide graphics.
+3) Users can get recommended recipes to fill thier macros (Edamam)
+4) Use the Google Maps or a hiking trails API to recommend places to walk/run
+5) Users can search YouTube videos of excersizes to target certain body parts
+
+API's to be used: Edamam, Google Maps or hiking trail, YouTube
+
+Breakdown of Tasks:
+
