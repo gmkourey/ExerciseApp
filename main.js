@@ -2,9 +2,10 @@
 
 //Obtain user inputs
 
-var heightFeetInput = $("#heightFeetInput").val().;
+//global variables
+var heightFeetInput = $("#heightFeetInput").val();
 var heightInchesInput = $("#heightInchesInput").val();
-
+var heightInInches = (parse(heightFeetInput) * 12) + parse(heightInInches);
 var weight = $("#weightInput").val();
 var gender = [];
 
