@@ -26,10 +26,10 @@ var idealWeight = ((heightInInches * 24) * heightInInches)/705
 var lowestHealthyWeight = ((heightInInches * 18.5) * heightInInches)/705
 
 
-if (BMI < 18.5) document... = "Underweight";
-if (BMI >= 18.5 && BMI <= 25) ... = "Normal";
-if (BMI >= 25 && BMI <= 30) ... = "Obese";
-if (BMI > 30) ... = "Overweight";           
+// if (BMI < 18.5) document... = "Underweight";
+// if (BMI >= 18.5 && BMI <= 25) ... = "Normal";
+// if (BMI >= 25 && BMI <= 30) ... = "Obese";
+// if (BMI > 30) ... = "Overweight";           
 
 
 // calories 
