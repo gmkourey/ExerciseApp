@@ -3,18 +3,22 @@
 //Obtain user inputs
 
 //global variables
-var heightFeetInput = $("#heightFeetInput").val();
-var heightInchesInput = $("#heightInchesInput").val();
-var heightInCm = heightInInches * 2.54;
-var weightPounds = $("#weightInput").val();
-var weightKg = weightPounds * .454;
+
+var heightFeetInput;
+var heightInchesInput;
+var heightInInches;
+var heightInCm;
+var weightPounds;
+var weightKg;
+
 var ree = 0;
-var sex = $("#sex").val();
-var age = $("#age").val();
-var activityLevel = $("#activityLevel").val(); 
+var sex;
+var age;
+var activityLevel; 
 var protein = 0;
 var fat = 0;
 var carbs = 0;
+var reeAfter = 0;
 // varbiables for activity levels: couchPotatoe, moderatelyActive, highlyActive, triathlonRunner
 
 
@@ -53,8 +57,69 @@ switch(activityLevel) {
     break;
 };
 
+$('#submitInfo').on('click', function(event) {
+
+if ($("#userHeightFeet").val() !== '' && $("#userHeightInches").val() !== '' && $("#userWeight").val() && $("#userSex").val() !== '' && $("#userAge").val() !== '') {    
+event.preventDefault();
+
+heightFeetInput = $("#userHeightFeet").val();
+heightInchesInput = $("#userHeightInches").val();
+heightInInches = (parseInt(heightFeetInput) * 12) + parseInt(heightInchesInput);
+heightInCm = heightInInches * 2.54;
+weightPounds = $("#userWeight").val();
+weightKg = weightPounds * .454;
+sex = $("#userSex").val();
+age = $("#userAge").val();
+activityLevel = $("#userActivity").val();
+
+$("#userHeightFeet").val('');
+$("#userHeightInches").val('');
+$("#userWeight").val('');
+$("#userSex").val('');
+$("#userAge").val('');
+$("#userActivity").val('');
+$('#userName').val('');
+
+if (sex === "male") {
+    ree = (weightKg * 10) + (6.25 * heightInCm) - (age * 5) + 5;
+    console.log('male' , ree);
+} else {
+    ree = (weightKg * 10) + (6.25 * heightInCm) - (age * 5) - 161;
+    console.log('female' , ree);
+}
+
 ree = Math.round(ree);
 
-protein = Math.round(ree * .35);
-fat = Math.round(ree * .2);
-carbs = Math.round(ree * .45);
+
+switch(activityLevel) {
+    case "couchPotatoe": 
+    reeAfter = ree * 1.2;
+    break;
+
+    case "moderatelyActive":
+    reeAfter = ree * 1.375;
+    break;
+
+    case "highlyActive":
+    reeAfter = ree* 1.55;
+    break;
+
+    case "triathlonRunner":
+    reeAfter = ree * 1.725;
+    break;
+};
+
+protein = Math.round((reeAfter * .35)/4);
+console.log('You should have this much protein: ' + protein);
+fat = Math.round((reeAfter * .2)/9);
+console.log('You should have this much fat: ' + fat);
+carbs = Math.round((reeAfter * .45)/4);
+console.log('You should have this many carbs: ' + carbs);
+console.log('Total calories needed with activity level: ' + reeAfter);
+console.log('Total calories consumed with diet: ' + ((protein * 4) + (fat * 9) + (carbs* 4)));
+reeAfter=Math.round(reeAfter);
+} else {
+    alert("You have not filled out the form correctly. Please try again!");
+}
+});
+
