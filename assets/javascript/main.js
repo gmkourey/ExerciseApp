@@ -3,12 +3,14 @@
 //Obtain user inputs
 
 //global variables
+
 var heightFeetInput;
 var heightInchesInput;
 var heightInInches;
 var heightInCm;
 var weightPounds;
 var weightKg;
+
 var ree = 0;
 var sex;
 var age;
@@ -21,7 +23,7 @@ var reeAfter = 0;
 
 
 //calculate variables based on inputs
-var BMI = ((weightPounds * 705)/heightInInches)/heightInInches;
+var BMI = ((weight * 705)/heightInInches)/heightInInches;
 
 var idealWeight = ((heightInInches * 24) * heightInInches)/705
 var lowestHealthyWeight = ((heightInInches * 18.5) * heightInInches)/705
@@ -87,6 +89,7 @@ if (sex === "male") {
 }
 
 ree = Math.round(ree);
+
 
 switch(activityLevel) {
     case "couchPotatoe": 
