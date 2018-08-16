@@ -5,7 +5,6 @@
 //global variables
 var heightFeetInput = $("#heightFeetInput").val();
 var heightInchesInput = $("#heightInchesInput").val();
-var heightInInches = (parseInt(heightFeetInput) * 12) + parseInt(heightInInches);
 var heightInCm = heightInInches * 2.54;
 var weightPounds = $("#weightInput").val();
 var weightKg = weightPounds * .454;
@@ -20,7 +19,7 @@ var carbs = 0;
 
 
 //calculate variables based on inputs
-var BMI = ((weightPounds * 705)/heightInInches)/heightInInches;
+var BMI = ((weight * 705)/heightInInches)/heightInInches;
 
 var idealWeight = ((heightInInches * 24) * heightInInches)/705
 var lowestHealthyWeight = ((heightInInches * 18.5) * heightInInches)/705
