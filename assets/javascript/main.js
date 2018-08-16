@@ -5,7 +5,6 @@
 //global variables
 var heightFeetInput = $("#heightFeetInput").val();
 var heightInchesInput = $("#heightInchesInput").val();
-var heightInInches = (parse(heightFeetInput) * 12) + parse(heightInInches);
 var heightInCm = heightInInches * 2.54;
 var weightPounds = $("#weightInput").val();
 var weightKg = weightPounds * .454;
