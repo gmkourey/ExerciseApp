@@ -8,12 +8,19 @@ image{
 }
 .btn-info{
     background: gray;
+    height: 50px;
 }
 /* body{ */
 #form1{
     display: none;
+    color: rgb(15, 97, 15);
+    background-color: antiquewhite;
+    border-radius: 10px;
 }
 /* testing for a loading icon */
-#icon{
-    align-self: center;
+body{
+    background-color: rgb(127, 131, 150);
+}
+footer{
+    background-color: rgb(12, 131, 111);
 }

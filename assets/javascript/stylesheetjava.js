@@ -13,7 +13,6 @@ $(document).ready(function(){
         $(".btn-info").hide();
         $("#form1").toggle();
         // this should load till the back end data form is ready, or after a set amount of time. 
-        $(".fa").toggle();
-
+        $(".fa-spin").toggle();
     });
 });
