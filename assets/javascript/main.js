@@ -22,7 +22,7 @@ var carbs = 0;
 
 
 //calculate variables based on inputs
-var BMI = ((weight * 705)/heightInInches)/heightInInches;
+var BMI = ((weightPounds * 705)/heightInInches)/heightInInches;
 
 var idealWeight = ((heightInInches * 24) * heightInInches)/705
 var lowestHealthyWeight = ((heightInInches * 18.5) * heightInInches)/705
