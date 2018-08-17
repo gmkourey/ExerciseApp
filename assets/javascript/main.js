@@ -41,13 +41,13 @@ $('.goal').on('click', function() {
 
     if(userGoal === 'loseWeight') {
         $('#goalSelected').text('That\'s great, you want to lose weight!');
-        console.log('You want to lose weight!');
+
     } else if (userGoal === 'buildMuscle') {
         $('#goalSelected').text('That\'s great, you want to buld THICK muscle!');
-        console.log('You want to build muscle!');
+
     } else {
         $('#goalSelected').text('That\'s great, you want to get toned!')
-        console.log('You want to get toned!');
+
     }
     $('#userInputs').css('display', 'block');
 
@@ -85,17 +85,12 @@ $('#userName').val('');
 
 if (sex === "male") {
     ree = (weightKg * 10) + (6.25 * heightInCm) - (age * 5) + 5;
-    console.log('male' , ree);
 } else {
     ree = (weightKg * 10) + (6.25 * heightInCm) - (age * 5) - 161;
-    console.log('female' , ree);
 }
 
 ree = Math.round(ree);
 
-protein = Math.round(ree * .35);
-fat = Math.round(ree * .2);
-carbs = Math.round(ree * .45);
 var ajaxCall;
 $.ajax({
     url: "https://www.googleapis.com/youtube/v3/search?part=snippet&order=rating&videoDuration=medium&q=building%20muscle+exercises&type=video&videoDefinition=high&key=AIzaSyBAhh8JN12Xz7fLIavO-XuhO0V9bXHjAMI&maxResults=5",
@@ -139,33 +134,48 @@ switch(activityLevel) {
     break;
 };
 
+reeAfter=Math.round(reeAfter);
+
 switch(userGoal) {
 
     case "loseWeight":
+    reeAfter *= .9;
     protein = Math.round((reeAfter * .35)/4);
     fat = Math.round((reeAfter * .2)/9);
     carbs = Math.round((reeAfter * .45)/4);
     break;
 
     case "buildMuscle":
+    reeAfter *= 1.1;
     protein = Math.round((reeAfter * .35)/4);
-    fat = Math.round((reeAfter * .2)/9);
-    carbs = Math.round((reeAfter * .45)/4);
+    fat = Math.round((reeAfter * .15)/9);
+    carbs = Math.round((reeAfter * .50)/4);
     break;
 
     case "getToned":
-    protein = Math.round((reeAfter * .35)/4);
-    fat = Math.round((reeAfter * .2)/9);
-    carbs = Math.round((reeAfter * .45)/4); 
+    protein = Math.round((reeAfter * .5)/4);
+    fat = Math.round((reeAfter * .3)/9);
+    carbs = Math.round((reeAfter * .2)/4); 
     break;
 };
-
-protein = Math.round((reeAfter * .35)/4);
-fat = Math.round((reeAfter * .2)/9);
-carbs = Math.round((reeAfter * .45)/4);
-
-reeAfter=Math.round(reeAfter);
+console.log('Grams of protein: ' + protein + ', grams of carbs: ' + carbs + ', grams of fat: ' + fat);
 } else {
     alert("You have not filled out the form correctly. Please try again!");
 }
+});
+var ctx = document.getElementById("myChart");
+var myPieChart = new Chart(ctx,{
+    type: 'pie',
+    data = {
+        datasets: [{
+            data: [10, 20, 30]
+        }],
+    
+        // These labels appear in the legend and in the tooltips when hovering different arcs
+        labels: [
+            'Red',
+            'Yellow',
+            'Blue'
+        ]
+    };
 });
