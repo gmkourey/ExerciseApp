@@ -27,8 +27,32 @@ var userGoal;
 
 
 //calculate variables based on inputs
+var BMI = ((weightPounds * 705)/heightInInches)/heightInInches;
 
-
+function createChart(protein, carbs, fat) {
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ["Protein", "Carbs", "Fat"],
+            datasets: [{
+                label: '# of Votes',
+                data: [protein, carbs, fat],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+    });
+    }
 
 // if (BMI < 18.5) document... = "Underweight";
 // if (BMI >= 18.5 && BMI <= 25) ... = "Normal";
@@ -97,28 +121,29 @@ protein = Math.round(ree * .35);
 fat = Math.round(ree * .2);
 carbs = Math.round(ree * .45);
 var ajaxCall;
-$.ajax({
-    url: "https://www.googleapis.com/youtube/v3/search?part=snippet&order=rating&videoDuration=medium&q=building%20muscle+exercises&type=video&videoDefinition=high&key=AIzaSyBAhh8JN12Xz7fLIavO-XuhO0V9bXHjAMI&maxResults=5",
-    method: "GET"
-  }).then(function(response) {
 
-      ajaxCall = response.items;
+// $.ajax({
+//     url: "https://www.googleapis.com/youtube/v3/search?part=snippet&order=rating&videoDuration=medium&q=building%20muscle+exercises&type=video&videoDefinition=high&key=AIzaSyBAhh8JN12Xz7fLIavO-XuhO0V9bXHjAMI&maxResults=5",
+//     method: "GET"
+//   }).then(function(response) {
 
-      for(var i = 0; i < ajaxCall.length; i++) {
-          var newDiv = $('<div>');
-          newDiv.attr('id', 'youtubeVideos');
+//       ajaxCall = response.items;
 
-          var newAnchor = $('<a>');
-          newAnchor.attr('href', 'https://www.youtube.com/watch?v=' + ajaxCall[i].id.videoId);
-          newAnchor.attr('target', '_blank');
-          newAnchor.attr('class', 'videoLinks');
+//       for(var i = 0; i < ajaxCall.length; i++) {
+//           var newDiv = $('<div>');
+//           newDiv.attr('id', 'youtubeVideos');
+
+//           var newAnchor = $('<a>');
+//           newAnchor.attr('href', 'https://www.youtube.com/watch?v=' + ajaxCall[i].id.videoId);
+//           newAnchor.attr('target', '_blank');
+//           newAnchor.attr('class', 'videoLinks');
           
-          var newImage = $('<img>');
-          newImage.attr('src', ajaxCall[i].snippet.thumbnails.medium.url)
-        newAnchor.append(newImage);
-        $('#videos').append(newAnchor);
-      };
-});
+//           var newImage = $('<img>');
+//           newImage.attr('src', ajaxCall[i].snippet.thumbnails.medium.url)
+//         newAnchor.append(newImage);
+//         $('#videos').append(newAnchor);
+//       };
+// });
 
 
 switch(activityLevel) {
@@ -159,12 +184,34 @@ switch(userGoal) {
     carbs = Math.round((reeAfter * .45)/4); 
     break;
 };
-
-protein = Math.round((reeAfter * .35)/4);
-fat = Math.round((reeAfter * .2)/9);
-carbs = Math.round((reeAfter * .45)/4);
+$('#macroChart').css('display', 'block');
+createChart(protein, carbs, fat);
 
 reeAfter=Math.round(reeAfter);
+
+var ajaxCall;
+$.ajax({
+    url: "https://www.googleapis.com/youtube/v3/search?part=snippet&order=rating&videoDuration=medium&q=building%20muscle+exercises&type=video&videoDefinition=high&key=AIzaSyBAhh8JN12Xz7fLIavO-XuhO0V9bXHjAMI&maxResults=10",
+    method: "GET"
+  }).then(function(response) {
+
+      ajaxCall = response.items;
+
+      for(var i = 0; i < ajaxCall.length; i++) {
+          var newDiv = $('<div>');
+          newDiv.attr('id', 'youtubeVideos');
+
+          var newAnchor = $('<a>');
+          newAnchor.attr('href', 'https://www.youtube.com/watch?v=' + ajaxCall[i].id.videoId);
+          newAnchor.attr('target', '_blank');
+          
+          var newImage = $('<img>');
+          newImage.attr('src', ajaxCall[i].snippet.thumbnails.medium.url)
+        newAnchor.append(newImage);
+        $('#videos').append(newAnchor);
+      }
+});
+
 } else {
     alert("You have not filled out the form correctly. Please try again!");
 }
