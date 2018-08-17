@@ -27,6 +27,10 @@ var userGoal;
 
 
 //calculate variables based on inputs
+<<<<<<< HEAD
+var BMI = ((weightPounds * 705)/heightInInches)/heightInInches;
+=======
+>>>>>>> 63581440b2bfaaca6ae59bafd3698377b37a3ced
 
 
 
@@ -165,6 +169,30 @@ fat = Math.round((reeAfter * .2)/9);
 carbs = Math.round((reeAfter * .45)/4);
 
 reeAfter=Math.round(reeAfter);
+
+var ajaxCall;
+$.ajax({
+    url: "https://www.googleapis.com/youtube/v3/search?part=snippet&order=rating&videoDuration=medium&q=building%20muscle+exercises&type=video&videoDefinition=high&key=AIzaSyBAhh8JN12Xz7fLIavO-XuhO0V9bXHjAMI&maxResults=10",
+    method: "GET"
+  }).then(function(response) {
+
+      ajaxCall = response.items;
+
+      for(var i = 0; i < ajaxCall.length; i++) {
+          var newDiv = $('<div>');
+          newDiv.attr('id', 'youtubeVideos');
+
+          var newAnchor = $('<a>');
+          newAnchor.attr('href', 'https://www.youtube.com/watch?v=' + ajaxCall[i].id.videoId);
+          newAnchor.attr('target', '_blank');
+          
+          var newImage = $('<img>');
+          newImage.attr('src', ajaxCall[i].snippet.thumbnails.medium.url)
+        newAnchor.append(newImage);
+        $('#videos').append(newAnchor);
+      }
+});
+
 } else {
     alert("You have not filled out the form correctly. Please try again!");
 }
