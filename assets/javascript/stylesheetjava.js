@@ -3,7 +3,7 @@
 // 
 $(document).ready(function(){
     $("#form1").hide();
-    $(".fa").hide();
+    $(".fa-spin").hide();
     $(".btn-info").on('click', function(){
         $('#form1').toggle();
         $(".btn-info").text("Fill out the Form Below")
