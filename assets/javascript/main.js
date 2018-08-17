@@ -10,14 +10,20 @@ var heightInInches;
 var heightInCm;
 var weightPounds;
 var weightKg;
-
 var ree = 0;
-var sex = $("#sex").val();
-var age = $("#age").val();
-var activityLevel = $("#activityLevel").val(); 
+var sex;
+var age;
+var activityLevel;
 var protein = 0;
 var fat = 0;
 var carbs = 0;
+
+$('#submitInfo').on('click', function(event) {
+    event.preventDefault();
+
+sex = $("#userSex").val();
+age = $("#userAge").val();
+activityLevel = $("#activityLevel").val(); 
 // varbiables for activity levels: couchPotatoe, moderatelyActive, highlyActive, triathlonRunner
 
 
@@ -42,7 +48,7 @@ if (sex === "male") {
 }
 
 switch(activityLevel) {
-    case "couchPotatoe": 
+    case "couchPotato": 
     ree *= 1.2;
     break;
     case "moderatelyActive":
@@ -78,10 +84,9 @@ $.ajax({
           newAnchor.attr('target', '_blank');
           
           var newImage = $('<img>');
-          newImage.attr('src', ajaxCall[i].snippet.thumbnails.high.url)
+          newImage.attr('src', ajaxCall[i].snippet.thumbnails.medium.url)
         newAnchor.append(newImage);
-        $('.container').append(newAnchor);
+        $('#videos').append(newAnchor);
       }
-
-
-        });
+});
+});
