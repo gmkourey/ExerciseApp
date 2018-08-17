@@ -7,3 +7,24 @@ image{
     width: 100%;
 }
 
+
+#videos {
+    text-align:center;
+}
+#userInputs {
+    display:none;
+}
+.videoLinks {
+    margin:20px;
+}
+.goal {
+    display:inline-block;
+    padding:30px;
+}
+.goal:hover {
+    background-color:lightgrey;
+}
+#goals {
+    text-align:center;
+}
+
