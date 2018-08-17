@@ -6,3 +6,14 @@ image{
     max-height: 200px;
     width: 100%;
 }
+.btn-info{
+    background: gray;
+}
+/* body{ */
+#form1{
+    display: none;
+}
+/* testing for a loading icon */
+#icon{
+    align-self: center;
+}
