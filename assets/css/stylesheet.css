@@ -25,3 +25,8 @@ image{
 #goals {
     text-align:center;
 }
+#macroChart {
+    height:500px;
+    width:500px;
+    display:none;
+}
