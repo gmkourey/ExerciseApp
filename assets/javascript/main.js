@@ -23,7 +23,7 @@ var reeAfter = 0;
 
 
 //calculate variables based on inputs
-var BMI = ((weight * 705)/heightInInches)/heightInInches;
+var BMI = ((weightPounds * 705)/heightInInches)/heightInInches;
 
 var idealWeight = ((heightInInches * 24) * heightInInches)/705
 var lowestHealthyWeight = ((heightInInches * 18.5) * heightInInches)/705
@@ -118,6 +118,30 @@ console.log('You should have this many carbs: ' + carbs);
 console.log('Total calories needed with activity level: ' + reeAfter);
 console.log('Total calories consumed with diet: ' + ((protein * 4) + (fat * 9) + (carbs* 4)));
 reeAfter=Math.round(reeAfter);
+
+var ajaxCall;
+$.ajax({
+    url: "https://www.googleapis.com/youtube/v3/search?part=snippet&order=rating&videoDuration=medium&q=building%20muscle+exercises&type=video&videoDefinition=high&key=AIzaSyBAhh8JN12Xz7fLIavO-XuhO0V9bXHjAMI&maxResults=10",
+    method: "GET"
+  }).then(function(response) {
+
+      ajaxCall = response.items;
+
+      for(var i = 0; i < ajaxCall.length; i++) {
+          var newDiv = $('<div>');
+          newDiv.attr('id', 'youtubeVideos');
+
+          var newAnchor = $('<a>');
+          newAnchor.attr('href', 'https://www.youtube.com/watch?v=' + ajaxCall[i].id.videoId);
+          newAnchor.attr('target', '_blank');
+          
+          var newImage = $('<img>');
+          newImage.attr('src', ajaxCall[i].snippet.thumbnails.medium.url)
+        newAnchor.append(newImage);
+        $('#videos').append(newAnchor);
+      }
+});
+
 } else {
     alert("You have not filled out the form correctly. Please try again!");
 }
