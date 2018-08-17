@@ -171,16 +171,21 @@ reeAfter=Math.round(reeAfter);
 });
 
 var edamamCall;
-.ajax({
-    url: "https://api.edamam.com/search?q=chicken&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}&from=0&to=3&calories=591-722&health=alcohol-free",
+$.ajax({
+    url: "https://cors-anywhere.herokuapp.com/" + "https://api.edamam.com/search?q=chicken&app_id=618ffb44&app_key=70e58eb1b0363201c44e518f1cd8b7f6",
     method: "GET"
 }).then(function(response){
 
-    edamamCall = response.items;
-    
+    edamamCall = response.hits;
+    console.log(response)
     for(var i = 0; i < edamamCall.length; i++){
-
+        console.log(edamamCall[i].recipe.label)
 
 
     }
+})
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 5ff9977dceee2794130504afd94af03539ebfa72
