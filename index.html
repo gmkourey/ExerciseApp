@@ -9,17 +9,25 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/stylesheet.css" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.3.0/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.3.0/firebaseui.css" />
+
+
 </head>
 <body>
     <div class="wrapper">
         <!-- start of header -->
         <!-- <div class="container">
             <div class="jumbotron">
-                <h1>the WIP is you.</h1>
+                <h1></h1>
             </div>
         </div> -->
+      
+        <div class="card">
+            <div class="card-header" style = "text-align : center">
+              <blockquote class="blockquote mb-0">
+                <p>  The WIP is YOU!</p>
+              </blockquote>
+            </div>
+          </div>
         <!-- end of header -->
      
          <!-- start of Carousel -->
@@ -93,7 +101,7 @@
                     <div class="form-group">
                         <label for="Activity">Activity Level</label>
                         <select class="form-control" id="userActivity">
-                            <option value="couchPotatoe">Couch potato</option>
+                            <option value="couchPotato">Couch potato</option>
                             <option value="moderatelyActive">Moderately Active</option>
                             <option value="highlyActive">Highly Active</option>
                             <option value="triathlonRunner">Triatholon Runner</option>
@@ -114,6 +122,7 @@
                     <button type="submit" class="btn btn-primary" id="submitInfo">Submit</button>
                   </form>
         </div>
+        <div id="videos"></div>
         <!-- Start of footer -->
         <div class="footer">
             <!-- social media links and some contact info. -->
@@ -121,9 +130,12 @@
         </div>
     </div>
 
-
 <!-- js links for the BOOTSTRAP -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
 <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
 <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
