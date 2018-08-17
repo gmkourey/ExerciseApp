@@ -123,3 +123,36 @@ reeAfter=Math.round(reeAfter);
 }
 });
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+var edamamCall;
+.ajax({
+    url: "https://api.edamam.com/search?q=chicken&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}&from=0&to=3&calories=591-722&health=alcohol-free",
+    method: "GET"
+}).then(function(response){
+
+    edamamCall = response.items;
+    
+    for(var i = 0; i < edamamCall.length; i++){
+
+
+
+    }
+
+
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+})
+>>>>>>> Stashed changes
+=======
+})
+>>>>>>> Stashed changes
+=======
+})
+>>>>>>> Stashed changes
