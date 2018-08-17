@@ -22,6 +22,8 @@ var BMI;
 var idealWeight;
 var lowestHealthyWeight;
 var userGoal;
+var ajaxCall;
+var youTubeQuery;
 
 // varbiables for activity levels: couchPotatoe, moderatelyActive, highlyActive, triathlonRunner
 
@@ -29,7 +31,7 @@ var userGoal;
 //calculate variables based on inputs
 var BMI = ((weightPounds * 705)/heightInInches)/heightInInches;
 
-function createChart(protein, carbs, fat) {
+function createChart(fprotein, fcarbs, ffat) {
     var ctx = document.getElementById("myChart").getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'pie',
@@ -37,7 +39,7 @@ function createChart(protein, carbs, fat) {
             labels: ["Protein", "Carbs", "Fat"],
             datasets: [{
                 label: '# of Votes',
-                data: [protein, carbs, fat],
+                data: [fprotein, fcarbs, ffat],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -117,35 +119,6 @@ if (sex === "male") {
 
 ree = Math.round(ree);
 
-protein = Math.round(ree * .35);
-fat = Math.round(ree * .2);
-carbs = Math.round(ree * .45);
-var ajaxCall;
-
-// $.ajax({
-//     url: "https://www.googleapis.com/youtube/v3/search?part=snippet&order=rating&videoDuration=medium&q=building%20muscle+exercises&type=video&videoDefinition=high&key=AIzaSyBAhh8JN12Xz7fLIavO-XuhO0V9bXHjAMI&maxResults=5",
-//     method: "GET"
-//   }).then(function(response) {
-
-//       ajaxCall = response.items;
-
-//       for(var i = 0; i < ajaxCall.length; i++) {
-//           var newDiv = $('<div>');
-//           newDiv.attr('id', 'youtubeVideos');
-
-//           var newAnchor = $('<a>');
-//           newAnchor.attr('href', 'https://www.youtube.com/watch?v=' + ajaxCall[i].id.videoId);
-//           newAnchor.attr('target', '_blank');
-//           newAnchor.attr('class', 'videoLinks');
-          
-//           var newImage = $('<img>');
-//           newImage.attr('src', ajaxCall[i].snippet.thumbnails.medium.url)
-//         newAnchor.append(newImage);
-//         $('#videos').append(newAnchor);
-//       };
-// });
-
-
 switch(activityLevel) {
     case "couchPotato": 
     reeAfter = ree * 1.2;
@@ -164,34 +137,42 @@ switch(activityLevel) {
     break;
 };
 
+reeAfter=Math.round(reeAfter);
+
 switch(userGoal) {
 
     case "loseWeight":
+    reeAfter *= .9;
     protein = Math.round((reeAfter * .35)/4);
     fat = Math.round((reeAfter * .2)/9);
     carbs = Math.round((reeAfter * .45)/4);
+    console.log(protein, carbs, fat);
+    youTubeQuery = "exercises+lose+weight";
     break;
 
     case "buildMuscle":
+    reeAfter *= 1.1;
     protein = Math.round((reeAfter * .35)/4);
     fat = Math.round((reeAfter * .2)/9);
     carbs = Math.round((reeAfter * .45)/4);
+    console.log(protein, carbs, fat);
+    youTubeQuery = "excercises+build+muscle";
     break;
 
     case "getToned":
-    protein = Math.round((reeAfter * .35)/4);
-    fat = Math.round((reeAfter * .2)/9);
-    carbs = Math.round((reeAfter * .45)/4); 
+    protein = Math.round((reeAfter * .50)/4);
+    fat = Math.round((reeAfter * .30)/9);
+    carbs = Math.round((reeAfter * .20)/4);
+    console.log(protein, carbs, fat);
+    youTubeQuery = "excercises+get+toned";
     break;
 };
 $('#macroChart').css('display', 'block');
+
 createChart(protein, carbs, fat);
 
-reeAfter=Math.round(reeAfter);
-
-var ajaxCall;
 $.ajax({
-    url: "https://www.googleapis.com/youtube/v3/search?part=snippet&order=rating&videoDuration=medium&q=building%20muscle+exercises&type=video&videoDefinition=high&key=AIzaSyBAhh8JN12Xz7fLIavO-XuhO0V9bXHjAMI&maxResults=10",
+    url: "https://www.googleapis.com/youtube/v3/search?part=snippet&order=rating&videoDuration=medium&q=" + youTubeQuery + "&type=video&videoDefinition=high&key=AIzaSyBAhh8JN12Xz7fLIavO-XuhO0V9bXHjAMI&maxResults=10",
     method: "GET"
   }).then(function(response) {
 
@@ -199,7 +180,7 @@ $.ajax({
 
       for(var i = 0; i < ajaxCall.length; i++) {
           var newDiv = $('<div>');
-          newDiv.attr('id', 'youtubeVideos');
+          newDiv.attr('id', 'youtubeVideo#' + i);
 
           var newAnchor = $('<a>');
           newAnchor.attr('href', 'https://www.youtube.com/watch?v=' + ajaxCall[i].id.videoId);
