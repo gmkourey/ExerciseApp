@@ -9,8 +9,8 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/stylesheet.css" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.3.0/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.3.0/firebaseui.css" />
+
+
 </head>
 <body>
     <div class="wrapper">
@@ -67,10 +67,22 @@
             <!-- end of carousel -->
         <!-- start of content -->
         <div class="container">
+            <div id="goals">
+                <div class="goal" id="loseWeight">
+                    <h2>Lose Weight</h2>
+                </div>
+                <div class="goal" id="buildMuscle">
+                    <h2>Build THICK Muscle</h2>
+                </div>
+                <div class="goal" id="getToned">
+                    <h2>Get Toned</h2>
+                </div>
+            </div>
         </div>
         <div class="container"> 
+                <h2 id="goalSelected"></h2>
             <!-- start of form divs, subject to change. -->
-            <form>
+            <form id="userInputs">
                     <div class="form-group">
                       <label for="Name">Enter Your name Below</label>
                       <input type="text" class="form-control" id="userName"  placeholder="First / Last">
@@ -93,7 +105,7 @@
                     <div class="form-group">
                         <label for="Activity">Activity Level</label>
                         <select class="form-control" id="userActivity">
-                            <option value="couchPotatoe">Couch potato</option>
+                            <option value="couchPotato">Couch potato</option>
                             <option value="moderatelyActive">Moderately Active</option>
                             <option value="highlyActive">Highly Active</option>
                             <option value="triathlonRunner">Triatholon Runner</option>
@@ -114,6 +126,9 @@
                     <button type="submit" class="btn btn-primary" id="submitInfo">Submit</button>
                   </form>
         </div>
+        <div class="container">
+        <div id="videos"></div>
+    </div>
         <!-- Start of footer -->
         <div class="footer">
             <!-- social media links and some contact info. -->
@@ -121,9 +136,12 @@
         </div>
     </div>
 
-
 <!-- js links for the BOOTSTRAP -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
 <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
 <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
