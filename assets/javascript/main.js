@@ -216,3 +216,23 @@ $.ajax({
     alert("You have not filled out the form correctly. Please try again!");
 }
 });
+
+var edamamCall;
+$.ajax({
+    url: "https://cors-anywhere.herokuapp.com/" + "https://api.edamam.com/search?q=chicken&app_id=618ffb44&app_key=70e58eb1b0363201c44e518f1cd8b7f6",
+    method: "GET"
+}).then(function(response){
+
+    edamamCall = response.hits;
+    console.log(response)
+    for(var i = 0; i < edamamCall.length; i++){
+        console.log(edamamCall[i].recipe.label)
+
+
+    }
+})
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> 5ff9977dceee2794130504afd94af03539ebfa72
