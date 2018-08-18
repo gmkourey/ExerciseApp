@@ -22,13 +22,39 @@ var BMI;
 var idealWeight;
 var lowestHealthyWeight;
 var userGoal;
+var ajaxCall;
+var youTubeQuery;
 
 // varbiables for activity levels: couchPotatoe, moderatelyActive, highlyActive, triathlonRunner
 
 
 //calculate variables based on inputs
+var BMI = ((weightPounds * 705)/heightInInches)/heightInInches;
 
-
+function createChart(fprotein, fcarbs, ffat) {
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ["Protein", "Carbs", "Fat"],
+            datasets: [{
+                label: '# of Votes',
+                data: [fprotein, fcarbs, ffat],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+    });
+    }
 
 // if (BMI < 18.5) document... = "Underweight";
 // if (BMI >= 18.5 && BMI <= 25) ... = "Normal";
@@ -93,34 +119,6 @@ if (sex === "male") {
 
 ree = Math.round(ree);
 
-protein = Math.round(ree * .35);
-fat = Math.round(ree * .2);
-carbs = Math.round(ree * .45);
-var ajaxCall;
-$.ajax({
-    url: "https://www.googleapis.com/youtube/v3/search?part=snippet&order=rating&videoDuration=medium&q=building%20muscle+exercises&type=video&videoDefinition=high&key=AIzaSyBAhh8JN12Xz7fLIavO-XuhO0V9bXHjAMI&maxResults=5",
-    method: "GET"
-  }).then(function(response) {
-
-      ajaxCall = response.items;
-
-      for(var i = 0; i < ajaxCall.length; i++) {
-          var newDiv = $('<div>');
-          newDiv.attr('id', 'youtubeVideos');
-
-          var newAnchor = $('<a>');
-          newAnchor.attr('href', 'https://www.youtube.com/watch?v=' + ajaxCall[i].id.videoId);
-          newAnchor.attr('target', '_blank');
-          newAnchor.attr('class', 'videoLinks');
-          
-          var newImage = $('<img>');
-          newImage.attr('src', ajaxCall[i].snippet.thumbnails.medium.url)
-        newAnchor.append(newImage);
-        $('#videos').append(newAnchor);
-      };
-});
-
-
 switch(activityLevel) {
     case "couchPotato": 
     reeAfter = ree * 1.2;
@@ -139,40 +137,75 @@ switch(activityLevel) {
     break;
 };
 
+reeAfter=Math.round(reeAfter);
+
 switch(userGoal) {
 
     case "loseWeight":
+    reeAfter *= .9;
     protein = Math.round((reeAfter * .35)/4);
     fat = Math.round((reeAfter * .2)/9);
     carbs = Math.round((reeAfter * .45)/4);
+    console.log(protein, carbs, fat);
+    youTubeQuery = "exercises+lose+weight";
     break;
 
     case "buildMuscle":
+    reeAfter *= 1.1;
     protein = Math.round((reeAfter * .35)/4);
     fat = Math.round((reeAfter * .2)/9);
     carbs = Math.round((reeAfter * .45)/4);
+    console.log(protein, carbs, fat);
+    youTubeQuery = "excercises+build+muscle";
     break;
 
     case "getToned":
-    protein = Math.round((reeAfter * .35)/4);
-    fat = Math.round((reeAfter * .2)/9);
-    carbs = Math.round((reeAfter * .45)/4); 
+    protein = Math.round((reeAfter * .50)/4);
+    fat = Math.round((reeAfter * .30)/9);
+    carbs = Math.round((reeAfter * .20)/4);
+    console.log(protein, carbs, fat);
+    youTubeQuery = "excercises+get+toned";
     break;
 };
+$('#macroChart').css('display', 'block');
 
-protein = Math.round((reeAfter * .35)/4);
-fat = Math.round((reeAfter * .2)/9);
-carbs = Math.round((reeAfter * .45)/4);
+createChart(protein, carbs, fat);
 
-reeAfter=Math.round(reeAfter);
+$.ajax({
+    url: "https://www.googleapis.com/youtube/v3/search?part=snippet&order=rating&videoDuration=medium&q=" + youTubeQuery + "&type=video&videoDefinition=high&key=AIzaSyBAhh8JN12Xz7fLIavO-XuhO0V9bXHjAMI&maxResults=10",
+    method: "GET"
+  }).then(function(response) {
+
+      ajaxCall = response.items;
+
+      for(var i = 0; i < ajaxCall.length; i++) {
+          var newDiv = $('<div>');
+          newDiv.attr('id', 'youtubeVideo#' + i);
+
+          var newAnchor = $('<a>');
+          newAnchor.attr('href', 'https://www.youtube.com/watch?v=' + ajaxCall[i].id.videoId);
+          newAnchor.attr('target', '_blank');
+          
+          var newImage = $('<img>');
+          newImage.attr('src', ajaxCall[i].snippet.thumbnails.medium.url)
+        newAnchor.append(newImage);
+        $('#videos').append(newAnchor);
+      }
+});
+
 } else {
     alert("You have not filled out the form correctly. Please try again!");
 }
 });
 
 var edamamCall;
+
+var lowFat = 'low-fat';
+var highProtein = 'high-protein';
+var lowCarb = 'low-carb';
+var searchTerms = [lowFat, highProtein, lowCarb];
 $.ajax({
-    url: "https://cors-anywhere.herokuapp.com/" + "https://api.edamam.com/search?q=chicken&app_id=618ffb44&app_key=70e58eb1b0363201c44e518f1cd8b7f6",
+    url: "https://cors-anywhere.herokuapp.com/" + "https://api.edamam.com/search?q=" + searchTerms + "&app_id=618ffb44&app_key=70e58eb1b0363201c44e518f1cd8b7f6",
     method: "GET"
 }).then(function(response){
 
@@ -184,5 +217,4 @@ $.ajax({
 
     }
 })
-
 

@@ -1,0 +1,22 @@
+var ajaxCall;
+$.ajax({
+    url: "https://www.googleapis.com/youtube/v3/search?part=snippet&order=rating&videoDuration=medium&q=building%20muscle+exercises&type=video&videoDefinition=high&key=AIzaSyBAhh8JN12Xz7fLIavO-XuhO0V9bXHjAMI&maxResults=10",
+    method: "GET"
+  }).then(function(response) {
+
+      ajaxCall = response.items;
+
+      for(var i = 0; i < ajaxCall.length; i++) {
+          var newDiv = $('<div>');
+          newDiv.attr('id', 'youtubeVideos');
+
+          var newAnchor = $('<a>');
+          newAnchor.attr('href', 'https://www.youtube.com/watch?v=' + ajaxCall[i].id.videoId);
+          newAnchor.attr('target', '_blank');
+          
+          var newImage = $('<img>');
+          newImage.attr('src', ajaxCall[i].snippet.thumbnails.medium.url)
+        newAnchor.append(newImage);
+        $('#videos').append(newAnchor);
+      }
+});
