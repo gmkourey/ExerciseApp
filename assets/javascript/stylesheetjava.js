@@ -6,7 +6,7 @@ $(document).ready(function(){
     $(".fa-spin").hide();
     $(".btn-info").on('click', function(){
         $('#form1').toggle();
-        $(".btn-info").text("Fill out the Form Below")
+        $(".btn-info").text("Pick Your Goal.")
     });
     $("#submitInfo").on('click',function(event){
         event.preventDefault();
