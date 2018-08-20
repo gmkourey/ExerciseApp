@@ -225,8 +225,35 @@ $.ajax({
     edamamCall = response.hits;
     console.log(response)
     for(var i = 0; i < edamamCall.length; i++){
+        var recipeDiv = $('<div>');
+        recipeDiv.attr('id', 'receipeInfo' + i);
+        recipeDiv.attr('class', 'card');
+        recipeDiv.attr('style', 'width: 18rem;')
+
+        var recipePic = $('<img>');
+        recipePic.attr('class', 'card-img-top')
+        recipePic.attr('src',edamamCall[i].recipe.image);
+        recipePic.attr('alt', 'pic of food');
+
+        var recipeTitleDiv = $('<div>');
+        recipeTitleDiv.attr('class', 'card-body');
+        recipeTitleText = $('<p>');
+        recipeTitleText.attr('class', 'card-text');
+        recipeTitleText = $('<h3>');
+        recipeTitleText.text(edamamCall[i].recipe.label);
+
+        $('recipeTitleText').append('receipeTitleDiv');
+        $('recipePic').append('recipeDiv');
+        $('recipeTitleDiv').append('recipeDiv');
+        $('receipeDiv').append('#recipes');
+        
+
         console.log(edamamCall[i].recipe.label)
 
 
     }
+<<<<<<< HEAD
 })
+=======
+});
+>>>>>>> 2d06f759a93467d67594b640cc79357676cfa613
