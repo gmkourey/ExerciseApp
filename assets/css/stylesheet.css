@@ -42,10 +42,11 @@ footer{
 
 #videos {
     text-align:center;
-}
-#userInputs {
     display:none;
 }
+/* #userInputs {
+    display:none;
+} */
 .videoLinks {
     margin:20px;
 }
@@ -60,9 +61,12 @@ footer{
     text-align:center;
 }
 #macroChart {
-    width:300px;
+    width:300px !important;
     display:none;
     text-align:center;
+}
+#BMIinfo {
+    display:none;
 }
 
 /* .recipes {
@@ -81,6 +85,7 @@ height: 200px;
 }
 
 #recipes {
+    display:none;
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
