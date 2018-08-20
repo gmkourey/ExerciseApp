@@ -24,6 +24,11 @@ var lowestHealthyWeight;
 var userGoal;
 var ajaxCall;
 var youTubeQuery;
+var edamamCall;
+var lowFat = 'low-fat';
+var highProtein = 'high-protein';
+var lowCarb = 'low-carb';
+var searchTerms = [lowFat, highProtein, lowCarb];
 
 // varbiables for activity levels: couchPotatoe, moderatelyActive, highlyActive, triathlonRunner
 
@@ -33,27 +38,32 @@ var BMI = ((weightPounds * 705)/heightInInches)/heightInInches;
 
 function createChart(fprotein, fcarbs, ffat) {
     var ctx = document.getElementById("myChart").getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ["Protein", "Carbs", "Fat"],
-            datasets: [{
-                label: '# of Votes',
-                data: [fprotein, fcarbs, ffat],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-    });
+var myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ["Protein", "Carbs", "Fat"],
+        datasets: [{
+            label: '# of Votes',
+            data: [fprotein, fcarbs, ffat],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)'
+            ],
+            borderWidth: 5
+        }]
+    },
+    options: {
+        legend: {
+            display: false
+         },
+    }
+});
     }
 
 // if (BMI < 18.5) document... = "Underweight";
@@ -93,7 +103,7 @@ heightInCm = heightInInches * 2.54;
 weightPounds = $("#userWeight").val();
 weightKg = weightPounds * .454;
 sex = $("#userSex").val();
-age = $("#userAge").val();
+userAge = $("#userAge").val();
 activityLevel = $("#userActivity").val();
 
 BMI = ((weightPounds * 705)/heightInInches)/heightInInches;
@@ -113,7 +123,7 @@ if (sex === "male") {
     ree = 66.47 + (13.75 * weightKg) + (5.0 * heightInCm) - (6.75 * userAge);
     console.log('male' , ree);
 } else {
-    ree = 665.09 + (9.56 * weightKg) + (1.84 * heighInCm) - (4.67 * userAge);
+    ree = 665.09 + (9.56 * weightKg) + (1.84 * heightInCm) - (4.67 * userAge);
     console.log('female' , ree);
 }
 
@@ -169,7 +179,11 @@ switch(userGoal) {
 };
 $('#macroChart').css('display', 'block');
 
+$('#nutrientInfo').append('<h3 class="nutrients">Protein needed: ' + protein + '<h3>');
+$('#nutrientInfo').append('<h3 class="nutrients">Carbs needed: ' + carbs + '<h3>');
+$('#nutrientInfo').append('<h3 class="nutrients">Fat needed: ' + fat + '<h3>');
 createChart(protein, carbs, fat);
+
 
 $.ajax({
     url: "https://www.googleapis.com/youtube/v3/search?part=snippet&order=rating&videoDuration=medium&q=" + youTubeQuery + "&type=video&videoDefinition=high&key=AIzaSyBAhh8JN12Xz7fLIavO-XuhO0V9bXHjAMI&maxResults=10",
@@ -180,8 +194,8 @@ $.ajax({
 
       for(var i = 0; i < ajaxCall.length; i++) {
           var newDiv = $('<div>');
-          newDiv.attr('class', 'card');
-          newDiv.css({'width': '18rem', 'margin': '10px', 'display': 'inline-block', 'border' : 'solid 1px lightgrey'});
+          newDiv.attr('class', 'video card');
+          newDiv.css({'width': '18rem','margin': '10px', 'height' : '320px' , 'display': 'inline-block', 'border' : 'solid 1px lightgrey'});
           newDiv.attr('id', 'youtubeVideo#' + i);
 
           var newAnchor = $('<a>');
@@ -209,14 +223,6 @@ $.ajax({
 } else {
     alert("You have not filled out the form correctly. Please try again!");
 }
-});
-
-var edamamCall;
-
-var lowFat = 'low-fat';
-var highProtein = 'high-protein';
-var lowCarb = 'low-carb';
-var searchTerms = [lowFat, highProtein, lowCarb];
 $.ajax({
     url: "https://cors-anywhere.herokuapp.com/" + "https://api.edamam.com/search?q=" + searchTerms + "&app_id=618ffb44&app_key=70e58eb1b0363201c44e518f1cd8b7f6",
     method: "GET"
@@ -226,9 +232,12 @@ $.ajax({
     console.log(response)
     for(var i = 0; i < edamamCall.length; i++){
         var recipeDiv = $('<div>');
-        recipeDiv.attr('id', 'receipeInfo' + i);
+        recipeDiv.attr('class', 'recipes');
+        // recipeDiv.attr('id', 'receipeInfo' + i);
         recipeDiv.attr('class', 'card');
-        recipeDiv.attr('style', 'width: 18rem;')
+        recipeDiv.attr('style', 'width: 30rem;');
+
+    
 
         var recipePic = $('<img>');
         recipePic.attr('class', 'card-img-top')
@@ -242,14 +251,13 @@ $.ajax({
         recipeTitleText = $('<h3>');
         recipeTitleText.text(edamamCall[i].recipe.label);
 
-        $('recipeTitleText').append('receipeTitleDiv');
-        $('recipePic').append('recipeDiv');
-        $('recipeTitleDiv').append('recipeDiv');
-        $('receipeDiv').append('#recipes');
+        $(recipeTitleDiv).append(recipeTitleText);
+        $(recipeDiv).append(recipePic);
+        $(recipeDiv).append(recipeTitleDiv);
+        $('#recipes').append(recipeDiv);
         
 
         console.log(edamamCall[i].recipe.label)
 
 
     }
-});
