@@ -4,33 +4,32 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>ExerciseAPP</title>
-
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/stylesheet.css" />
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
-
-
 </head>
 <body>
     <div class="wrapper">
-        <!-- start of header -->
-        <!-- <div class="container">
-            <div class="jumbotron">
-                <h1>the WIP is you.</h1>
-            </div>
-        </div> -->
-        <!-- end of header -->
-     
+       
          <!-- start of Carousel -->
 
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            
             <ol class="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner">
+
+              <div class="carousel-item active">
+                <img class="d-block w-100 " src="https://bestlifeonline.com/wp-content/uploads/2016/05/man-woman-deadlift-1024x683.jpg" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100 " src="https://99designs-blog.imgix.net/wp-content/uploads/2017/10/FITNESS-LOGOS-2.jpg?auto=format&q=60&fit=max&w=930" alt="Second slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="http://www.energyfitness.com/wp-content/uploads/2017/04/175558978.jpg" alt="Third slide">
+              </div>
+
                 <div class="carousel-item active">
                     <img class="d-block w-100 h-50" src="https://cdn-ami-drupal.heartyhosting.com/sites/muscleandfitness.com/files/styles/full_node_image_1090x614/public/media/campus-muscle-trainint-partner-4.jpg?itok=1amia8P1" alt="First slide">
                     <div class="carousel-caption d-none d-md-block">
@@ -53,6 +52,7 @@
                             </div>
                 </div>
                 
+
             </div>
 
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -79,8 +79,21 @@
                 </div>
             </div>
         </div>
+
+        <button type="button" class="btn btn-info btn-lg btn-block">Ready to get Started?</button>
+        <div class="container" id="icon">
+                <i class="fa fa-circle-o-notch fa-spin" style="font-size:100px; color:#D6e3f8;"></i>
+        </div>
+        <!-- start of Divs for Choices -->
+        <div>
+            
+
+        </div>
+        <div class="container" id="form1"> 
+
         <div class="container"> 
                 <h2 id="goalSelected"></h2>
+
             <!-- start of form divs, subject to change. -->
             <form id="userInputs">
                     <div class="form-group">
@@ -122,23 +135,69 @@
                                 <input type="number" class="form-control" id="userHeightInches"  placeholder="Put the inches here. ">
                         </div>
                     </div>
-
                     <button type="submit" class="btn btn-primary" id="submitInfo">Submit</button>
                   </form>
         </div>
         <div class="container">
+                <div id="macroChart">
+                        <canvas id="myChart" width="200" height="200"></canvas>
+                        <div id="nutrientInfo"></div>
+                    </div>
         <div id="videos"></div>
         
     </div>
    
         <!-- Start of footer -->
-        <div class="footer">
             <!-- social media links and some contact info. -->
+            <!-- Footer -->
+        <footer class="page-footer font-small cyan darken-3">
+            <!-- Footer Elements -->
+            <div class="container">    
+                <!-- Grid row-->
+                <div class="row">    
+                <!-- Grid column -->
+                <div class="col-md-12 py-5">
+                    <div class="mb-5 flex-center">    
+                    <!-- Facebook -->
+                    <a class="fb-ic">
+                        <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
+                    <!-- Twitter -->
+                    <a class="tw-ic">
+                        <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
+                    <!-- Google +-->
+                    <a class="gplus-ic">
+                        <i class="fa fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
+                    <!--Linkedin -->
+                    <a class="li-ic">
+                        <i class="fa fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
+                    <!--Instagram-->
+                    <a class="ins-ic">
+                        <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
+                    <!--Pinterest-->
+                    <a class="pin-ic">
+                        <i class="fa fa-pinterest fa-lg white-text fa-2x"> </i>
+                    </a>
+                    </div>
+                </div>
+                <!-- Grid column -->    
+                </div>
+                <!-- Grid row-->    
+            </div>
+            <!-- Footer Elements -->    
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2018 Copyright:
+                <a href="https://mdbootstrap.com/bootstrap-tutorial/"> MDBootstrap.com</a>
+            </div>
+            <!-- Copyright -->
 
-        </div>
-    </div>
-    <div id="macroChart">
-    <canvas id="myChart" width="200" height="200"></canvas>
+        </footer>
+    <!-- Footer -->
+
 </div>
 
 <div id="container">
@@ -152,11 +211,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
 <!-- js links for the BOOTSTRAP -->
 
+<!-- jquerry link -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- popper link -->
+
+
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
 <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+<!-- Material link -->
 <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
 <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
-
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- our own JS and CSS links -->
+<link rel="stylesheet" type="text/css" media="screen" href="assets/css/stylesheet.css" />
+<script src="assets/javascript/stylesheetjava.js"></script>
 <script src="assets/javascript/main.js"></script>
     
 </body>
