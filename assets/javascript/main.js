@@ -110,10 +110,10 @@ $("#userActivity").val('');
 $('#userName').val('');
 
 if (sex === "male") {
-    ree = (weightKg * 10) + (6.25 * heightInCm) - (age * 5) + 5;
+    ree = 66.47 + (13.75 * weightKg) + (5.0 * heightInCm) - (6.75 * userAge);
     console.log('male' , ree);
 } else {
-    ree = (weightKg * 10) + (6.25 * heightInCm) - (age * 5) - 161;
+    ree = 665.09 + (9.56 * weightKg) + (1.84 * heighInCm) - (4.67 * userAge);
     console.log('female' , ree);
 }
 
@@ -180,6 +180,8 @@ $.ajax({
 
       for(var i = 0; i < ajaxCall.length; i++) {
           var newDiv = $('<div>');
+          newDiv.attr('class', 'card');
+          newDiv.css({'width': '18rem', 'margin': '10px', 'display': 'inline-block', 'border' : 'solid 1px lightgrey'});
           newDiv.attr('id', 'youtubeVideo#' + i);
 
           var newAnchor = $('<a>');
@@ -187,9 +189,20 @@ $.ajax({
           newAnchor.attr('target', '_blank');
           
           var newImage = $('<img>');
+          newImage.attr('class', 'card-img-top');
           newImage.attr('src', ajaxCall[i].snippet.thumbnails.medium.url)
         newAnchor.append(newImage);
-        $('#videos').append(newAnchor);
+
+        var newTitle = $('<h3>');
+        newTitle.attr('class', 'card-title');
+        newTitle.text(ajaxCall[i].snippet.title);
+        newAnchor.append(newTitle);
+
+        $(newDiv).append(newAnchor);
+
+        $('#videos').append(newDiv);
+
+
       }
 });
 
@@ -212,8 +225,3 @@ $.ajax({
 
     }
 })
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 5ff9977dceee2794130504afd94af03539ebfa72
