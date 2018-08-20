@@ -24,11 +24,6 @@ var lowestHealthyWeight;
 var userGoal;
 var ajaxCall;
 var youTubeQuery;
-var edamamCall;
-var lowFat = 'low-fat';
-var highProtein = 'high-protein';
-var lowCarb = 'low-carb';
-var searchTerms = [lowFat, highProtein, lowCarb];
 
 // varbiables for activity levels: couchPotatoe, moderatelyActive, highlyActive, triathlonRunner
 
@@ -115,10 +110,10 @@ $("#userActivity").val('');
 $('#userName').val('');
 
 if (sex === "male") {
-    ree = 66.47 + (13.75 * weightKg) + (5.0 * heightInCm) - (6.75 * userAge);
+    ree = (weightKg * 10) + (6.25 * heightInCm) - (age * 5) + 5;
     console.log('male' , ree);
 } else {
-    ree = 665.09 + (9.56 * weightKg) + (1.84 * heighInCm) - (4.67 * userAge);
+    ree = (weightKg * 10) + (6.25 * heightInCm) - (age * 5) - 161;
     console.log('female' , ree);
 }
 
@@ -185,8 +180,6 @@ $.ajax({
 
       for(var i = 0; i < ajaxCall.length; i++) {
           var newDiv = $('<div>');
-          newDiv.attr('class', 'card');
-          newDiv.css({'width': '18rem', 'margin': '10px', 'display': 'inline-block', 'border' : 'solid 1px lightgrey'});
           newDiv.attr('id', 'youtubeVideo#' + i);
 
           var newAnchor = $('<a>');
@@ -194,26 +187,23 @@ $.ajax({
           newAnchor.attr('target', '_blank');
           
           var newImage = $('<img>');
-          newImage.attr('class', 'card-img-top');
           newImage.attr('src', ajaxCall[i].snippet.thumbnails.medium.url)
         newAnchor.append(newImage);
-
-        var newTitle = $('<h3>');
-        newTitle.attr('class', 'card-title');
-        newTitle.text(ajaxCall[i].snippet.title);
-        newAnchor.append(newTitle);
-
-        $(newDiv).append(newAnchor);
-
-        $('#videos').append(newDiv);
-
-
+        $('#videos').append(newAnchor);
       }
 });
 
 } else {
     alert("You have not filled out the form correctly. Please try again!");
 }
+});
+
+var edamamCall;
+
+var lowFat = 'low-fat';
+var highProtein = 'high-protein';
+var lowCarb = 'low-carb';
+var searchTerms = [lowFat, highProtein, lowCarb];
 $.ajax({
     url: "https://cors-anywhere.herokuapp.com/" + "https://api.edamam.com/search?q=" + searchTerms + "&app_id=618ffb44&app_key=70e58eb1b0363201c44e518f1cd8b7f6",
     method: "GET"
@@ -222,34 +212,9 @@ $.ajax({
     edamamCall = response.hits;
     console.log(response)
     for(var i = 0; i < edamamCall.length; i++){
-        var recipeDiv = $('<div>');
-        recipeDiv.attr('class', 'recipes');
-        // recipeDiv.attr('id', 'receipeInfo' + i);
-        recipeDiv.attr('class', 'card');
-        recipeDiv.attr('style', 'width: 30rem;');
-
-    
-
-        var recipePic = $('<img>');
-        recipePic.attr('class', 'card-img-top')
-        recipePic.attr('src',edamamCall[i].recipe.image);
-        recipePic.attr('alt', 'pic of food');
-
-        var recipeTitleDiv = $('<div>');
-        recipeTitleDiv.attr('class', 'card-body');
-        recipeTitleText = $('<p>');
-        recipeTitleText.attr('class', 'card-text');
-        recipeTitleText = $('<h3>');
-        recipeTitleText.text(edamamCall[i].recipe.label);
-
-        $(recipeTitleDiv).append(recipeTitleText);
-        $(recipeDiv).append(recipePic);
-        $(recipeDiv).append(recipeTitleDiv);
-        $('#recipes').append(recipeDiv);
-        
-
         console.log(edamamCall[i].recipe.label)
 
 
     }
+})
 
