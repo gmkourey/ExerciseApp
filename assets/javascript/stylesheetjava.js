@@ -2,10 +2,10 @@
 // sudo code, user selects what they want to fill out
 // 
 $(document).ready(function(){
-    $("#form1").hide();
+    // $("#form1").hide();
     $(".fa-spin").hide();
-    $(".btn-info").on('click', function(){
-        $('#form1').show();
+    $(".chicken").on('click', function(){
+        $('#form1').show().children().show();
         $(".btn-info").text("Pick Your Goal.")
     });
     $("#submitInfo").on('click',function(event){

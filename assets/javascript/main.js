@@ -38,7 +38,7 @@ var BMI = ((weightPounds * 705)/heightInInches)/heightInInches;
 
 function createChart(fprotein, fcarbs, ffat) {
     var ctx = document.getElementById("myChart").getContext('2d');
-var myChart = new Chart(ctx, {
+    var myChart = new Chart(ctx, {
     type: 'doughnut',
     data: {
         labels: ["Protein", "Carbs", "Fat"],
@@ -63,8 +63,8 @@ var myChart = new Chart(ctx, {
             display: false
          },
     }
-});
-    }
+    });
+}
 
 // if (BMI < 18.5) document... = "Underweight";
 // if (BMI >= 18.5 && BMI <= 25) ... = "Normal";
@@ -177,6 +177,7 @@ switch(userGoal) {
     youTubeQuery = "excercises+get+toned";
     break;
 };
+
 $('#macroChart').css('display', 'block');
 
 $('#nutrientInfo').append('<h3 class="nutrients">Protein needed: ' + protein + '<h3>');
@@ -218,46 +219,50 @@ $.ajax({
 
 
       }
-});
+    });
+    $.ajax({
+        url: "https://cors-anywhere.herokuapp.com/" + "https://api.edamam.com/search?q=" + searchTerms + "&app_id=618ffb44&app_key=70e58eb1b0363201c44e518f1cd8b7f6",
+        method: "GET"
+    }).then(function(response){
+    
+        edamamCall = response.hits;
+        console.log(response)
+        for(var i = 0; i < edamamCall.length; i++){
+            var recipeDiv = $('<div>');
+            recipeDiv.attr('class', 'recipes');
+            // recipeDiv.attr('id', 'receipeInfo' + i);
+            recipeDiv.attr('class', 'card');
+            recipeDiv.attr('style', 'width: 30rem;');
+    
+        
+    
+            var recipePic = $('<img>');
+            recipePic.attr('class', 'card-img-top')
+            recipePic.attr('src',edamamCall[i].recipe.image);
+            recipePic.attr('alt', 'pic of food');
+    
+            var recipeTitleDiv = $('<div>');
+            recipeTitleDiv.attr('class', 'card-body');
+            recipeTitleText = $('<p>');
+            recipeTitleText.attr('class', 'card-text');
+            recipeTitleText = $('<h3>');
+            recipeTitleText.text(edamamCall[i].recipe.label);
+    
+            $(recipeTitleDiv).append(recipeTitleText);
+            $(recipeDiv).append(recipePic);
+            $(recipeDiv).append(recipeTitleDiv);
+            $('#recipes').append(recipeDiv);
+            
+    
+            console.log(edamamCall[i].recipe.label)
+    
+    
+        }
+    });
 
 } else {
     alert("You have not filled out the form correctly. Please try again!");
 }
-$.ajax({
-    url: "https://cors-anywhere.herokuapp.com/" + "https://api.edamam.com/search?q=" + searchTerms + "&app_id=618ffb44&app_key=70e58eb1b0363201c44e518f1cd8b7f6",
-    method: "GET"
-}).then(function(response){
-
-    edamamCall = response.hits;
-    console.log(response)
-    for(var i = 0; i < edamamCall.length; i++){
-        var recipeDiv = $('<div>');
-        recipeDiv.attr('class', 'recipes');
-        // recipeDiv.attr('id', 'receipeInfo' + i);
-        recipeDiv.attr('class', 'card');
-        recipeDiv.attr('style', 'width: 30rem;');
-
-    
-
-        var recipePic = $('<img>');
-        recipePic.attr('class', 'card-img-top')
-        recipePic.attr('src',edamamCall[i].recipe.image);
-        recipePic.attr('alt', 'pic of food');
-
-        var recipeTitleDiv = $('<div>');
-        recipeTitleDiv.attr('class', 'card-body');
-        recipeTitleText = $('<p>');
-        recipeTitleText.attr('class', 'card-text');
-        recipeTitleText = $('<h3>');
-        recipeTitleText.text(edamamCall[i].recipe.label);
-
-        $(recipeTitleDiv).append(recipeTitleText);
-        $(recipeDiv).append(recipePic);
-        $(recipeDiv).append(recipeTitleDiv);
-        $('#recipes').append(recipeDiv);
-        
-
-        console.log(edamamCall[i].recipe.label)
 
 
-    }
+});
