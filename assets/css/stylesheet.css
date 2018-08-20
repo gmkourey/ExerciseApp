@@ -1,3 +1,34 @@
-body{
-    background: -moz-radial-gradient(#e66465, #9198e5);
+.carousel-inner > .item > img {
+    width:100%;
+    height:360px;
+  }
+image{
+    max-height: 200px;
+    width: 100%;
+}
+
+
+#videos {
+    text-align:center;
+}
+#userInputs {
+    display:none;
+}
+.videoLinks {
+    margin:20px;
+}
+.goal {
+    display:inline-block;
+    padding:30px;
+}
+.goal:hover {
+    background-color:lightgrey;
+}
+#goals {
+    text-align:center;
+}
+#macroChart {
+    height:500px;
+    width:500px;
+    display:none;
 }
