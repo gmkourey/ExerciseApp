@@ -212,8 +212,13 @@ $.ajax({
 });
 
 var edamamCall;
+
+var lowFat = 'low-fat';
+var highProtein = 'high-protein';
+var lowCarb = 'low-carb';
+var searchTerms = [lowFat, highProtein, lowCarb];
 $.ajax({
-    url: "https://cors-anywhere.herokuapp.com/" + "https://api.edamam.com/search?q=chicken&app_id=618ffb44&app_key=70e58eb1b0363201c44e518f1cd8b7f6",
+    url: "https://cors-anywhere.herokuapp.com/" + "https://api.edamam.com/search?q=" + searchTerms + "&app_id=618ffb44&app_key=70e58eb1b0363201c44e518f1cd8b7f6",
     method: "GET"
 }).then(function(response){
 
