@@ -40,13 +40,13 @@ footer{
     max-height: 700px !important;
   }
 
-
 #videos {
     text-align:center;
-}
-#userInputs {
     display:none;
 }
+/* #userInputs {
+    display:none;
+} */
 .videoLinks {
     margin:20px;
 }
@@ -61,9 +61,12 @@ footer{
     text-align:center;
 }
 #macroChart {
-    width:300px;
+    width:300px !important;
     display:none;
     text-align:center;
+}
+#BMIinfo {
+    display:none;
 }
 
 /* .recipes {
@@ -79,5 +82,17 @@ height: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
     height:450px;
+}
+
+#recipes {
+    display:none;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+#videos {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
 }
 
