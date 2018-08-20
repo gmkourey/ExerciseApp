@@ -24,7 +24,11 @@ var lowestHealthyWeight;
 var userGoal;
 var ajaxCall;
 var youTubeQuery;
-
+var edamamCall;
+var lowFat = 'low-fat';
+var highProtein = 'high-protein';
+var lowCarb = 'low-carb';
+var searchTerms;
 // varbiables for activity levels: couchPotatoe, moderatelyActive, highlyActive, triathlonRunner
 
 
@@ -153,6 +157,7 @@ switch(userGoal) {
     carbs = Math.round((reeAfter * .45)/4);
     console.log(protein, carbs, fat);
     youTubeQuery = "exercises+lose+weight";
+    searchTerms = lowFat;
     break;
 
     case "buildMuscle":
@@ -162,6 +167,7 @@ switch(userGoal) {
     carbs = Math.round((reeAfter * .45)/4);
     console.log(protein, carbs, fat);
     youTubeQuery = "excercises+build+muscle";
+    searchTerms = highProtein;
     break;
 
     case "getToned":
@@ -170,6 +176,7 @@ switch(userGoal) {
     carbs = Math.round((reeAfter * .20)/4);
     console.log(protein, carbs, fat);
     youTubeQuery = "excercises+get+toned";
+    searchTerms = lowCarb;
     break;
 };
 $('#macroChart').css('display', 'block');
@@ -218,14 +225,6 @@ $.ajax({
 } else {
     alert("You have not filled out the form correctly. Please try again!");
 }
-}); 
-
-var edamamCall;
-
-var lowFat = 'low-fat';
-var highProtein = 'high-protein';
-var lowCarb = 'low-carb';
-var searchTerms = [lowFat, highProtein, lowCarb];
 
 $.ajax({
     url: "https://cors-anywhere.herokuapp.com/" + "https://api.edamam.com/search?q=" + searchTerms + "&app_id=618ffb44&app_key=70e58eb1b0363201c44e518f1cd8b7f6",
@@ -261,3 +260,11 @@ $.ajax({
         console.log(edamamCall[i].recipe.label)
     }
 });
+
+
+
+
+
+
+}); 
+
