@@ -31,9 +31,17 @@ image{
     text-align:center;
 }
 
-.recipes {
+/* .recipes {
 width: 200px;
 height: 200px;
     margin: 10px;
+    text-align:center;
+} */
+
+.card {
     display: inline-block;
+    margin:20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height:450px;
 }
