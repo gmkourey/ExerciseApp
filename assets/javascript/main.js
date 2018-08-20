@@ -33,7 +33,6 @@ var searchTerms;
 
 
 //calculate variables based on inputs
-var BMI = ((weightPounds * 705)/heightInInches)/heightInInches;
 
 function createChart(fprotein, fcarbs, ffat) {
     var ctx = document.getElementById("myChart").getContext('2d');
@@ -65,10 +64,11 @@ var myChart = new Chart(ctx, {
 });
     }
 
-// if (BMI < 18.5) document... = "Underweight";
+// if (BMI < 18.5) = "Underweight";
 // if (BMI >= 18.5 && BMI <= 25) ... = "Normal";
 // if (BMI >= 25 && BMI <= 30) ... = "Obese";
-// if (BMI > 30) ... = "Overweight";           
+// if (BMI > 30) ... = "Overweight";
+
 $('.goal').on('click', function() {
     $('#goals').css('display', 'none');
     userGoal = $(this).attr('id');
@@ -84,13 +84,13 @@ $('.goal').on('click', function() {
         $('#goalSelected').text('That\'s great, you want to get toned!')
         console.log('You want to get toned!');
     }
-    $('#userInputs').css('display', 'block');
+    $('#form1').css('display', 'block');
 
 });
 
-$('#submitInfo').on('click', function(event) {
+$('#submitInfo').on('click', function(event) { 
 
-    $('#userInputs').css('display', 'none');
+    $('#form1').css('display', 'none');
 
 if ($("#userHeightFeet").val() !== '' && $("#userHeightInches").val() !== '' && $("#userWeight").val() && $("#userSex").val() !== '' && $("#userAge").val() !== '') {    
 event.preventDefault();
@@ -105,10 +105,13 @@ sex = $("#userSex").val();
 userAge = $("#userAge").val();
 activityLevel = $("#userActivity").val();
 
-BMI = ((weightPounds * 705)/heightInInches)/heightInInches;
-
 idealWeight = ((heightInInches * 24) * heightInInches)/705
 lowestHealthyWeight = ((heightInInches * 18.5) * heightInInches)/705
+
+var BMI = ((parseInt(weightPounds) * 705)/heightInInches)/heightInInches;
+console.log(BMI + '1');
+BMI = Math.round(BMI);
+console.log(BMI + '2');
 
 $("#userHeightFeet").val('');
 $("#userHeightInches").val('');
@@ -119,10 +122,10 @@ $("#userActivity").val('');
 $('#userName').val('');
 
 if (sex === "male") {
-    ree = 66.47 + (13.75 * weightKg) + (5.0 * heightInCm) - (6.75 * userAge);
+    ree = (10 * weightKg) + (6.25 * heightInCm) - (5 * userAge) + 5;
     console.log('male' , ree);
 } else {
-    ree = 665.09 + (9.56 * weightKg) + (1.84 * heightInCm) - (4.67 * userAge);
+    ree = (10 * weightKg) + (6.25 * heightInCm) - (5 * userAge) - 161;
     console.log('female' , ree);
 }
 
@@ -147,7 +150,7 @@ switch(activityLevel) {
 };
 
 reeAfter=Math.round(reeAfter);
-
+$('#BMIinfo').append('<h3>The amount of calories you should be consuming: ' + reeAfter);
 switch(userGoal) {
 
     case "loseWeight":
@@ -179,13 +182,20 @@ switch(userGoal) {
     searchTerms = lowCarb;
     break;
 };
-$('#macroChart').css('display', 'block');
+
+reeAfter = Math.round(reeAfter);
+
+$('#BMIinfo').append('<h3>Your curent BMI is: ' + BMI);
+$('#BMIinfo').css('display', 'inline-block');
+
+$('#macroChart').css('display', 'inline-block');
 
 $('#nutrientInfo').append('<h3 class="nutrients">Protein needed: ' + protein + '<h3>');
 $('#nutrientInfo').append('<h3 class="nutrients">Carbs needed: ' + carbs + '<h3>');
 $('#nutrientInfo').append('<h3 class="nutrients">Fat needed: ' + fat + '<h3>');
 createChart(protein, carbs, fat);
 
+$('#videos').css('display', 'block');
 
 $.ajax({
     url: "https://www.googleapis.com/youtube/v3/search?part=snippet&order=rating&videoDuration=medium&q=" + youTubeQuery + "&type=video&videoDefinition=high&key=AIzaSyBAhh8JN12Xz7fLIavO-XuhO0V9bXHjAMI&maxResults=10",
@@ -220,11 +230,14 @@ $.ajax({
 
 
       }
-});
+    });
 
-} else {
-    alert("You have not filled out the form correctly. Please try again!");
-}
+      var edamamCall;
+
+var lowFat = 'low-fat';
+var highProtein = 'high-protein';
+var lowCarb = 'low-carb';
+var searchTerms = [lowFat, highProtein, lowCarb];
 
 $.ajax({
     url: "https://cors-anywhere.herokuapp.com/" + "https://api.edamam.com/search?q=" + searchTerms + "&app_id=618ffb44&app_key=70e58eb1b0363201c44e518f1cd8b7f6",
@@ -259,12 +272,11 @@ $.ajax({
 
         console.log(edamamCall[i].recipe.label)
     }
+    $('#recipes').css('display', 'block'); 
 });
 
-
-
-
-
-
+} else {
+    alert("You have not filled out the form correctly. Please try again!");
+}
 }); 
 
