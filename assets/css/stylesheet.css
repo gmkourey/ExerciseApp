@@ -1,26 +1,40 @@
 body{
-    background-color: lightblue;
-}
-image{
-    max-height: 200px;
-    width: 100%;
+    background-color: #d6e3fe;
 }
 .btn-info{
-    background: gray;
+    background: #9d5c63;
     height: 50px;
 }
 /* body{ */
 #form1{
     display: none;
     color: rgb(15, 97, 15);
-    background-color: antiquewhite;
+    background-color: #fef5ef;
     border-radius: 10px;
 }
 /* testing for a loading icon */
 body{
-    background-color: rgb(127, 131, 150);
+    background-color: #584b53;
 }
 footer{
-    background-color: rgb(12, 131, 111);
+    background-color: #e4bb97;
     text-align: center;
 }
+.navbar{
+    background-color: #9d5c63;
+    margin: 0 0 5px 0;
+}
+/* .navbar.scrolling-navbar{
+    -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+    -o-transition: background .5s ease-in-out,padding .5s ease-in-out;
+    transition: background .5s ease-in-out,padding .5s ease-in-out;
+    padding-top: 12px;
+    padding-bottom: 12px;
+} */
+.tales {
+    width: 100%;
+  }
+  .carousel-inner{
+    width:100%;
+    max-height: 700px !important;
+  }
