@@ -6,8 +6,6 @@ image{
     max-height: 200px;
     width: 100%;
 }
-
-
 #videos {
     text-align:center;
 }
@@ -28,7 +26,7 @@ image{
     text-align:center;
 }
 #macroChart {
-    height:500px;
-    width:500px;
+    width:300px;
     display:none;
+    text-align:center;
 }
