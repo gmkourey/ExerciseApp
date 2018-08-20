@@ -84,7 +84,7 @@ $('.goal').on('click', function() {
 
 });
 
-$('#submitInfo').on('click', function(event) {
+$('#submitInfo').on('click', function(event) { 
 
     $('#userInputs').css('display', 'none');
 

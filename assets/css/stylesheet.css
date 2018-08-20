@@ -40,7 +40,6 @@ footer{
     max-height: 700px !important;
   }
 
-}
 #videos {
     text-align:center;
 }
@@ -79,5 +78,16 @@ height: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
     height:450px;
+}
+
+#recipes {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+#videos {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
 }
 
