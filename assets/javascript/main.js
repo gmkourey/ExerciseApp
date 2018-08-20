@@ -24,11 +24,6 @@ var lowestHealthyWeight;
 var userGoal;
 var ajaxCall;
 var youTubeQuery;
-var edamamCall;
-var lowFat = 'low-fat';
-var highProtein = 'high-protein';
-var lowCarb = 'low-carb';
-var searchTerms = [lowFat, highProtein, lowCarb];
 
 // varbiables for activity levels: couchPotatoe, moderatelyActive, highlyActive, triathlonRunner
 
@@ -223,21 +218,27 @@ $.ajax({
 } else {
     alert("You have not filled out the form correctly. Please try again!");
 }
+}); 
+
+var edamamCall;
+
+var lowFat = 'low-fat';
+var highProtein = 'high-protein';
+var lowCarb = 'low-carb';
+var searchTerms = [lowFat, highProtein, lowCarb];
+
 $.ajax({
     url: "https://cors-anywhere.herokuapp.com/" + "https://api.edamam.com/search?q=" + searchTerms + "&app_id=618ffb44&app_key=70e58eb1b0363201c44e518f1cd8b7f6",
     method: "GET"
-}).then(function(response){
+}).then(function(response) {
 
     edamamCall = response.hits;
     console.log(response)
-    for(var i = 0; i < edamamCall.length; i++){
+    for(var i = 0; i < edamamCall.length; i++) {
         var recipeDiv = $('<div>');
-        recipeDiv.attr('class', 'recipes');
-        // recipeDiv.attr('id', 'receipeInfo' + i);
+        recipeDiv.attr('id', 'receipeInfo' + i);
         recipeDiv.attr('class', 'card');
-        recipeDiv.attr('style', 'width: 30rem;');
-
-    
+        recipeDiv.attr('style', 'width: 18rem;');
 
         var recipePic = $('<img>');
         recipePic.attr('class', 'card-img-top')
@@ -251,14 +252,12 @@ $.ajax({
         recipeTitleText = $('<h3>');
         recipeTitleText.text(edamamCall[i].recipe.label);
 
-        $(recipeTitleDiv).append(recipeTitleText);
-        $(recipeDiv).append(recipePic);
-        $(recipeDiv).append(recipeTitleDiv);
-        $('#recipes').append(recipeDiv);
+        $(recipeTitleText).appendTo(recipeTitleDiv);
+        $(recipePic).appendTo(recipeDiv);
+        $(recipeTitleDiv).appendTo(recipeDiv);
+        $(recipeDiv).appendTo('#recipes');
         
 
         console.log(edamamCall[i].recipe.label)
-
-
     }
-
+});
