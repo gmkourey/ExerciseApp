@@ -210,9 +210,12 @@ $.ajax({
     console.log(response)
     for(var i = 0; i < edamamCall.length; i++){
         var recipeDiv = $('<div>');
+        recipeDiv.attr('class', 'recipes');
         // recipeDiv.attr('id', 'receipeInfo' + i);
         recipeDiv.attr('class', 'card');
-        recipeDiv.attr('style', 'width: 18rem;')
+        recipeDiv.attr('style', 'width: 30rem;');
+
+    
 
         var recipePic = $('<img>');
         recipePic.attr('class', 'card-img-top')
