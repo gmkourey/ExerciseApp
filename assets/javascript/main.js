@@ -24,7 +24,11 @@ var lowestHealthyWeight;
 var userGoal;
 var ajaxCall;
 var youTubeQuery;
-
+var edamamCall;
+var lowFat = 'low-fat';
+var highProtein = 'high-protein';
+var lowCarb = 'low-carb';
+var searchTerms;
 // varbiables for activity levels: couchPotatoe, moderatelyActive, highlyActive, triathlonRunner
 
 
@@ -156,6 +160,7 @@ switch(userGoal) {
     carbs = Math.round((reeAfter * .45)/4);
     console.log(protein, carbs, fat);
     youTubeQuery = "exercises+lose+weight";
+    searchTerms = lowFat;
     break;
 
     case "buildMuscle":
@@ -165,6 +170,7 @@ switch(userGoal) {
     carbs = Math.round((reeAfter * .45)/4);
     console.log(protein, carbs, fat);
     youTubeQuery = "excercises+build+muscle";
+    searchTerms = highProtein;
     break;
 
     case "getToned":
@@ -173,7 +179,8 @@ switch(userGoal) {
     carbs = Math.round((reeAfter * .20)/4);
     console.log(protein, carbs, fat);
     youTubeQuery = "excercises+get+toned";
-    break
+    searchTerms = lowCarb;
+    break;
 };
 
 reeAfter = Math.round(reeAfter);
