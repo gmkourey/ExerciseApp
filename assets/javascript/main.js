@@ -91,6 +91,7 @@ $('.goal').on('click', function() {
 $('#submitInfo').on('click', function(event) { 
     $('.container').css('padding-top', '40px');
     $('#form1').css('display', 'none');
+    
 
 if ($("#userHeightFeet").val() !== '' && $("#userHeightInches").val() !== '' && $("#userWeight").val() && $("#userSex").val() !== '' && $("#userAge").val() !== '') {    
 event.preventDefault();
