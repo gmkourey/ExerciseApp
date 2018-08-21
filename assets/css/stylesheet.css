@@ -1,5 +1,6 @@
 body{
     background-color: #d6e3fe;
+    font-family:  'Oswald', sans-serif;
 }
 #recipes {
     margin-bottom:30px;
@@ -8,7 +9,6 @@ body{
     background: #9d5c63;
     height: 50px;
 }
-/* body{ */
 #form1{
     display: none;
     color: rgb(15, 97, 15);
@@ -16,8 +16,8 @@ body{
     border-radius: 10px;
     margin-top:50px;
 }
-/* testing for a loading icon */
-body{
+
+body {
     background-color: #584b53;
     min-height:100vh;
 }
@@ -38,6 +38,12 @@ footer{
 } */
 .fab{
     color:#584b53;
+}
+.title {
+    margin-bottom: 0px;
+    font-size: 60px;
+    padding:10px;
+    
 }
 .tales {
     width: 100%;
@@ -68,8 +74,8 @@ footer{
 }
 #goals {
     text-align:center;
-    background-color: #9d5c63;
     border-radius: 10px;
+    background-color: #9d5c63;
 }
 #macroChart {
     width:300px !important;
