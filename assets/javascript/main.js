@@ -89,8 +89,9 @@ $('.goal').on('click', function() {
 });
 
 $('#submitInfo').on('click', function(event) { 
-
+    $('.container').css('padding-top', '40px');
     $('#form1').css('display', 'none');
+    
 
 if ($("#userHeightFeet").val() !== '' && $("#userHeightInches").val() !== '' && $("#userWeight").val() && $("#userSex").val() !== '' && $("#userAge").val() !== '') {    
 event.preventDefault();
@@ -169,7 +170,7 @@ switch(userGoal) {
     fat = Math.round((reeAfter * .2)/9);
     carbs = Math.round((reeAfter * .45)/4);
     console.log(protein, carbs, fat);
-    youTubeQuery = "excercises+build+muscle";
+    youTubeQuery = "exercises+build+muscle";
     searchTerms = highProtein;
     break;
 
@@ -178,7 +179,7 @@ switch(userGoal) {
     fat = Math.round((reeAfter * .30)/9);
     carbs = Math.round((reeAfter * .20)/4);
     console.log(protein, carbs, fat);
-    youTubeQuery = "excercises+get+toned";
+    youTubeQuery = "exercises+get+toned";
     searchTerms = lowCarb;
     break;
 };
@@ -198,7 +199,7 @@ createChart(protein, carbs, fat);
 $('#videos').css('display', 'block');
 
 $.ajax({
-    url: "https://www.googleapis.com/youtube/v3/search?part=snippet&order=rating&videoDuration=medium&q=" + youTubeQuery + "&type=video&videoDefinition=high&key=AIzaSyBAhh8JN12Xz7fLIavO-XuhO0V9bXHjAMI&maxResults=10",
+    url: "https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&videoDuration=medium&q=" + youTubeQuery + "&type=video&videoDefinition=high&key=AIzaSyBAhh8JN12Xz7fLIavO-XuhO0V9bXHjAMI&maxResults=10",
     method: "GET"
   }).then(function(response) {
 
@@ -207,7 +208,7 @@ $.ajax({
       for(var i = 0; i < ajaxCall.length; i++) {
           var newDiv = $('<div>');
           newDiv.attr('class', 'video card');
-          newDiv.css({'width': '18rem','margin': '10px', 'height' : '320px' , 'display': 'inline-block', 'border' : 'solid 1px lightgrey'});
+          newDiv.css({'width': '33rem','margin': '10px','height' : '340px' , 'display': 'inline-block', 'border' : 'solid 1px lightgrey'});
           newDiv.attr('id', 'youtubeVideo#' + i);
 
           var newAnchor = $('<a>');
@@ -250,7 +251,8 @@ $.ajax({
         var recipeDiv = $('<div>');
         recipeDiv.attr('id', 'receipeInfo' + i);
         recipeDiv.attr('class', 'card rounded');
-        recipeDiv.attr('style', 'width: 18rem;');
+        recipeDiv.attr('style', 'width: 33rem;');
+        recipeDiv.css({'height': '340px', 'margin' : '10px'});
 
         var recipeAnchor = $('<a>')
         recipeAnchor.attr('href', edamamCall[i].recipe.url);
@@ -265,7 +267,7 @@ $.ajax({
 
 
         var recipeTitle = $('<h3>');
-        recipeTitle.attr('class', 'card-text text-center text-wrap');
+        recipeTitle.attr('class', 'card-text text-center text-wrap card-title');
         recipeTitle.text(edamamCall[i].recipe.label);
         recipeAnchor.append(recipeTitle);
 
