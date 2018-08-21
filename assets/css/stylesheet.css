@@ -130,7 +130,11 @@ height: 200px;
     background: #fef5ef; 
     border-radius: 10px;
 }
-
+.result-titles {
+    color: #fef5ef;
+    font-family: 'Oswald', sans-serif;
+    
+}
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: lightgrey; 
