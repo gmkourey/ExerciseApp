@@ -36,7 +36,7 @@ var searchTerms;
 
 function createChart(fprotein, fcarbs, ffat) {
     var ctx = document.getElementById("myChart").getContext('2d');
-var myChart = new Chart(ctx, {
+    var myChart = new Chart(ctx, {
     type: 'doughnut',
     data: {
         labels: ["Protein", "Carbs", "Fat"],
@@ -61,8 +61,8 @@ var myChart = new Chart(ctx, {
             display: false
          },
     }
-});
-    }
+    });
+}
 
 // if (BMI < 18.5) = "Underweight";
 // if (BMI >= 18.5 && BMI <= 25) ... = "Normal";
@@ -293,5 +293,4 @@ $.ajax({
 } else {
     alert("You have not filled out the form correctly. Please try again!");
 }
-}); 
-
+});
