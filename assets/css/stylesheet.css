@@ -29,13 +29,6 @@ footer{
     background-color: #9d5c63;
     margin: 0 0 5px 0;
 }
-/* .navbar.scrolling-navbar{
-    -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
-    -o-transition: background .5s ease-in-out,padding .5s ease-in-out;
-    transition: background .5s ease-in-out,padding .5s ease-in-out;
-    padding-top: 12px;
-    padding-bottom: 12px;
-} */
 .fab{
     color:#584b53;
 }
