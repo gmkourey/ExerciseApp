@@ -36,6 +36,9 @@ footer{
     padding-top: 12px;
     padding-bottom: 12px;
 } */
+.fab{
+    color:#584b53;
+}
 .tales {
     width: 100%;
 
@@ -65,19 +68,14 @@ footer{
 }
 #goals {
     text-align:center;
+    background-color: #9d5c63;
+    border-radius: 10px;
 }
 #macroChart {
     width:300px !important;
     display:none;
     text-align:center;
     color: #fef5ef;
-}
-#BMIinfo {
-    display:none;
-    text-align:center;
-    color: #fef5ef;
-    float:right;
-    margin-top:150px;
 }
 
 /* .recipes {
@@ -102,12 +100,15 @@ height: 200px;
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
+    margin-top:15px;
 }
 #videos {
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
+    margin-top:25px;
 }
+
 .card-img-top {
     height:295px;
 }
@@ -142,4 +143,26 @@ height: 200px;
 
 body::-webkit-scrollbar { 
     display: none; 
+}
+
+.result-titles {
+    text-align:center;
+    margin-bottom:25px;
+    font-size:40px;
+    display:none;
+}
+.nutrients {
+    font-family: 'Oswald', sans-serif;
+}
+#BMIinfo {
+    font-family: 'Oswald', sans-serif;
+    display:none;
+    text-align:center;
+    color: #fef5ef;
+    float:right;
+    margin-top:130px;
+}
+#BMIinfo h3 {
+    font-size:35px;
+    margin-bottom:20px;
 }

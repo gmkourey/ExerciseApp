@@ -69,15 +69,15 @@
         </div>
             <!-- end of carousel -->
         <!-- start of content -->
-        <div class="container">
+        <div class="container goalsContainer">
             <div id="goals">
-                <div class="goal" id="loseWeight" style = "background:#e4bb97;border-radius : 15px">
+                <div class="goal" id="loseWeight">
                     <h2>Lose Weight</h2>
                 </div>
-                <div class="goal" id="buildMuscle" style = "background: #e4bb97;border-radius : 15px">
+                <div class="goal" id="buildMuscle">
                     <h2>Build THICK Muscle</h2>
                 </div>
-                <div class="goal" id="getToned" style = "background: #e4bb97;border-radius : 15px">
+                <div class="goal" id="getToned">
                     <h2>Get Toned</h2>
                 </div>
             </div>
@@ -91,7 +91,7 @@
         <!-- start of Divs for Choices -->
     <div class="container" id="form1"> 
 
-        <div class="container"> 
+            <!-- <div class="container">  -->
                 <h2 id="goalSelected"></h2>
 
             <!-- start of form divs, subject to change. -->
@@ -125,7 +125,7 @@
 
                         </select>
                     </div>
-                    <div class="row">
+                    <div class="form-inline">
                         <div class="form-group col-md-6">
                                 <label for="Height">Height</label>
                                 <input type="number" class="form-control" id="userHeightFeet"  placeholder="How tall are you in feet?">
@@ -140,74 +140,86 @@
         </div>
     </div>
         <div class="container">
-            <h2 class = "result-titles">Here is your recommended macronutrient breakdown:</h2>
+                <h2 class = "result-titles">Here is your recommended macronutrient breakdown:</h2>
                 <div id="macroChart">
                         <canvas id="myChart" width="200" height="200"></canvas>
                         <div id="nutrientInfo"></div>
                     </div>
                 <div id="BMIinfo"></div>
+            
+        <div id="videos">
             <h2 class = "result-titles">Youtube tutorials related to your fitness goal:</h2>
-        <div id="videos"></div>
+        </div>
         
     </div>
     <div class="container">
             <!-- <div id="row"> -->
-                <h2 class = "result-titles">Recipes that suit your macros:</h2>
+                
                 <div id="recipes">
-        
+                        <h2 class = "result-titles">Recipes that suit your macros:</h2>
                 </div>
             <!-- </div> -->
         </div>
    
         <!-- Start of footer -->
             <!-- social media links and some contact info. -->
-            <!-- Footer -->
-        <footer class="page-footer font-small cyan darken-3">
-            <!-- Footer Elements -->
-            <div class="container">    
-                <!-- Grid row-->
-                <div class="row">    
-                <!-- Grid column -->
-                <div class="col-md-12 py-5">
-                    <div class="mb-5 flex-center">    
-                    <!-- Facebook -->
-                    <a class="fb-ic">
-                        <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                    </a>
-                    <!-- Twitter -->
-                    <a class="tw-ic">
-                        <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                    </a>
-                    <!-- Google +-->
-                    <a class="gplus-ic">
-                        <i class="fa fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                    </a>
-                    <!--Linkedin -->
-                    <a class="li-ic">
-                        <i class="fa fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                    </a>
-                    <!--Instagram-->
-                    <a class="ins-ic">
-                        <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                    </a>
-                    <!--Pinterest-->
-                    <a class="pin-ic">
-                        <i class="fa fa-pinterest fa-lg white-text fa-2x"> </i>
-                    </a>
-                    </div>
+</div>
+    <footer class="page-footer font-small cyan darken-3">
+        <!-- Footer Elements -->
+        <div class="container">
+            <h2>Contributors</h2>
+            <hr>
+            <!-- Grid row-->
+            <div class="row">
+            <!-- Grid column -->
+            <div class="col-md-12 py-5">
+                <div class="mb-5 flex-center">
+                <!-- Repository link -->
+                <a data-toggle="popover" title="Main Repository" data-content="Here is a link for Our project <a href='https://github.com/gmkourey/ExerciseApp' target='blank'>Repository.</a>">
+                <!-- <a href="https://github.com/gmkourey/ExerciseApp" target="blank"> -->
+                    <i class="fab fa-git-square fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+                    
+                
+                </a>
+                <!-- Brogan -->
+                <a data-toggle="popover" title="Brogan Stich" data-content="And here's some amazing content.<a href='https://github.com/ad-victoriam-101' target='blank'>Here is a link to my work.</a>">
+                    <i class="fab fa-github fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+                
+                </a>
+                <!-- Del-->
+                <a data-toggle="popover" title="Delphine Urubera" data-content="And here's some amazing content.<a href='https://github.com/delphine18' target='blank'>Here is a link to my work.</a>">
+                    <i class="fab fa-github fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+                
+                </a>
+                <!--Grace -->
+                <a data-toggle="popover" title="Grace Houghton Andrizzi" data-content="And here's some amazing content.<a href='https://github.com/adorkwithaspork' target='blank'>Here is a link to my work.</a>">
+                <!-- <a href="https://github.com/adorkwithaspork" target="blank"> -->
+                    <i class="fab fa-github fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+                    
+                </a>
+                <!--Grant-->
+                <a id ="popcard"data-toggle="popover" title="Grant Kourey" data-content="And here's some amazing content.<a href='https://github.com/gmkourey' target='blank'>Here is a link to my work.</a>">
+                <!-- <a href="https://github.com/gmkourey" target="blank"> -->
+                    <i class="fab fa-github fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+                </a>
+                <!--Peter-->
+                <a data-toggle="popover" title="Peter MacDonnell" data-content="And here's some amazing content.<a href='https://github.com/PeterMacDonnell' target='blank'>Here is a link to my work.</a>">
+                <!-- <a href="https://github.com/PeterMacDonnell" target="blank"> -->
+                    <i class="fab fa-github fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+                </a>
                 </div>
-                <!-- Grid column -->    
-                </div>
-                <!-- Grid row-->    
             </div>
-            <!-- Footer Elements -->    
-            <!-- Copyright -->
-            <div class="footer-copyright text-center py-3">© 2018 Copyright:
-                <a href="https://mdbootstrap.com/bootstrap-tutorial/"> MDBootstrap.com</a>
+            <!-- Grid column -->    
             </div>
-            <!-- Copyright -->
+            <!-- Grid row-->    
+        </div>
+        <!-- Footer Elements -->    
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2018 Copyright:
+        </div>
+        <!-- Copyright -->
 
-        </footer>
+    </footer>
     <!-- Footer -->
 
 </div>
@@ -217,17 +229,15 @@
 
 <!-- jquerry link -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!-- popper link -->
-
-
+<!-- JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-
+<!-- popper JS -->
 <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
 <!-- Material link -->
 <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
 <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
 <!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 <!-- our own JS and CSS links -->
 <link rel="stylesheet" type="text/css" media="screen" href="assets/css/stylesheet.css" />
 
