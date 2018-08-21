@@ -31,6 +31,9 @@ footer{
     padding-top: 12px;
     padding-bottom: 12px;
 } */
+.fab{
+    color:#584b53;
+}
 .tales {
     width: 100%;
 
@@ -59,6 +62,8 @@ footer{
 }
 #goals {
     text-align:center;
+    background-color: #9d5c63;
+    border-radius: 10px;
 }
 #macroChart {
     width:300px !important;
@@ -95,4 +100,3 @@ height: 200px;
     overflow-y: hidden;
     white-space: nowrap;
 }
-
