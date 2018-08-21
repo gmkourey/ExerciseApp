@@ -183,16 +183,12 @@ switch(userGoal) {
     break;
 };
 
-<<<<<<< HEAD
-$('#macroChart').css('display', 'block');
-=======
 reeAfter = Math.round(reeAfter);
 
 $('#BMIinfo').append('<h3>Your curent BMI is: ' + BMI);
 $('#BMIinfo').css('display', 'inline-block');
 
 $('#macroChart').css('display', 'inline-block');
->>>>>>> 07c66334bc7528da4538304597521a7560b20f40
 
 $('#nutrientInfo').append('<h3 class="nutrients">Protein needed: ' + protein + '<h3>');
 $('#nutrientInfo').append('<h3 class="nutrients">Carbs needed: ' + carbs + '<h3>');
@@ -235,52 +231,6 @@ $.ajax({
 
       }
     });
-<<<<<<< HEAD
-    $.ajax({
-        url: "https://cors-anywhere.herokuapp.com/" + "https://api.edamam.com/search?q=" + searchTerms + "&app_id=618ffb44&app_key=70e58eb1b0363201c44e518f1cd8b7f6",
-        method: "GET"
-    }).then(function(response){
-    
-        edamamCall = response.hits;
-        console.log(response)
-        for(var i = 0; i < edamamCall.length; i++){
-            var recipeDiv = $('<div>');
-            recipeDiv.attr('class', 'recipes');
-            // recipeDiv.attr('id', 'receipeInfo' + i);
-            recipeDiv.attr('class', 'card');
-            recipeDiv.attr('style', 'width: 30rem;');
-    
-        
-    
-            var recipePic = $('<img>');
-            recipePic.attr('class', 'card-img-top')
-            recipePic.attr('src',edamamCall[i].recipe.image);
-            recipePic.attr('alt', 'pic of food');
-    
-            var recipeTitleDiv = $('<div>');
-            recipeTitleDiv.attr('class', 'card-body');
-            recipeTitleText = $('<p>');
-            recipeTitleText.attr('class', 'card-text');
-            recipeTitleText = $('<h3>');
-            recipeTitleText.text(edamamCall[i].recipe.label);
-    
-            $(recipeTitleDiv).append(recipeTitleText);
-            $(recipeDiv).append(recipePic);
-            $(recipeDiv).append(recipeTitleDiv);
-            $('#recipes').append(recipeDiv);
-            
-    
-            console.log(edamamCall[i].recipe.label)
-    
-    
-        }
-    });
-
-} else {
-    alert("You have not filled out the form correctly. Please try again!");
-}
-
-=======
 
       var edamamCall;
 
@@ -340,7 +290,4 @@ $.ajax({
 } else {
     alert("You have not filled out the form correctly. Please try again!");
 }
-}); 
->>>>>>> 07c66334bc7528da4538304597521a7560b20f40
-
 });
