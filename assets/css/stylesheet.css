@@ -40,13 +40,17 @@ footer{
     max-height: 700px !important;
   }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 07c66334bc7528da4538304597521a7560b20f40
 #videos {
     text-align:center;
-}
-#userInputs {
     display:none;
 }
+/* #userInputs {
+    display:none;
+} */
 .videoLinks {
     margin:20px;
 }
@@ -61,15 +65,38 @@ footer{
     text-align:center;
 }
 #macroChart {
-    width:300px;
+    width:300px !important;
     display:none;
     text-align:center;
 }
+#BMIinfo {
+    display:none;
+}
 
-.recipes {
+/* .recipes {
 width: 200px;
 height: 200px;
     margin: 10px;
+    text-align:center;
+} */
+
+.card {
     display: inline-block;
+    margin:20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height:450px;
+}
+
+#recipes {
+    display:none;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+#videos {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
 }
 
