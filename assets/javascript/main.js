@@ -36,7 +36,7 @@ var searchTerms;
 
 function createChart(fprotein, fcarbs, ffat) {
     var ctx = document.getElementById("myChart").getContext('2d');
-var myChart = new Chart(ctx, {
+    var myChart = new Chart(ctx, {
     type: 'doughnut',
     data: {
         labels: ["Protein", "Carbs", "Fat"],
@@ -61,8 +61,8 @@ var myChart = new Chart(ctx, {
             display: false
          },
     }
-});
-    }
+    });
+}
 
 // if (BMI < 18.5) = "Underweight";
 // if (BMI >= 18.5 && BMI <= 25) ... = "Normal";
@@ -72,20 +72,22 @@ var myChart = new Chart(ctx, {
 $('.goal').on('click', function() {
     $('#goals').css('display', 'none');
     userGoal = $(this).attr('id');
-    console.log(userGoal);
 
     if(userGoal === 'loseWeight') {
         $('#goalSelected').text('That\'s great, you want to lose weight!');
-        console.log('You want to lose weight!');
     } else if (userGoal === 'buildMuscle') {
         $('#goalSelected').text('That\'s great, you want to buld THICK muscle!');
-        console.log('You want to build muscle!');
     } else {
         $('#goalSelected').text('That\'s great, you want to get toned!')
-        console.log('You want to get toned!');
     }
     $('#form1').css('display', 'block');
 
+});
+
+$('#buildMuscle').hover(function () {
+    $('#thicc').text('Build THICC Muscle');
+    }, function() {
+    $('#thicc').text('Build THICK Muscle');
 });
 
 $('#submitInfo').on('click', function(event) { 
@@ -111,9 +113,7 @@ idealWeight = ((heightInInches * 24) * heightInInches)/705
 lowestHealthyWeight = ((heightInInches * 18.5) * heightInInches)/705
 
 var BMI = ((parseInt(weightPounds) * 705)/heightInInches)/heightInInches;
-console.log(BMI + '1');
 BMI = Math.round(BMI);
-console.log(BMI + '2');
 
 $("#userHeightFeet").val('');
 $("#userHeightInches").val('');
@@ -125,10 +125,8 @@ $('#userName').val('');
 
 if (sex === "male") {
     ree = (10 * weightKg) + (6.25 * heightInCm) - (5 * userAge) + 5;
-    console.log('male' , ree);
 } else {
     ree = (10 * weightKg) + (6.25 * heightInCm) - (5 * userAge) - 161;
-    console.log('female' , ree);
 }
 
 ree = Math.round(ree);
@@ -160,7 +158,6 @@ switch(userGoal) {
     protein = Math.round((reeAfter * .35)/4);
     fat = Math.round((reeAfter * .2)/9);
     carbs = Math.round((reeAfter * .45)/4);
-    console.log(protein, carbs, fat);
     youTubeQuery = "exercises+lose+weight";
     searchTerms = lowFat;
     break;
@@ -170,7 +167,6 @@ switch(userGoal) {
     protein = Math.round((reeAfter * .35)/4);
     fat = Math.round((reeAfter * .2)/9);
     carbs = Math.round((reeAfter * .45)/4);
-    console.log(protein, carbs, fat);
     youTubeQuery = "exercises+build+muscle";
     searchTerms = highProtein;
     break;
@@ -179,7 +175,6 @@ switch(userGoal) {
     protein = Math.round((reeAfter * .50)/4);
     fat = Math.round((reeAfter * .30)/9);
     carbs = Math.round((reeAfter * .20)/4);
-    console.log(protein, carbs, fat);
     youTubeQuery = "exercises+get+toned";
     searchTerms = lowCarb;
     break;
@@ -247,7 +242,6 @@ $.ajax({
 }).then(function (response) {
 
     edamamCall = response.hits;
-    console.log(response)
     for (var i = 0; i < edamamCall.length; i++) {
         var recipeDiv = $('<div>');
         recipeDiv.attr('id', 'receipeInfo' + i);
@@ -258,7 +252,6 @@ $.ajax({
         var recipeAnchor = $('<a>')
         recipeAnchor.attr('href', edamamCall[i].recipe.url);
         recipeAnchor.attr('target', '_blank');
-        console.log("url", edamamCall[i].recipe.url)
 
         var recipePic = $('<img>');
         recipePic.attr('class', 'card-img-top rounded')
@@ -275,17 +268,6 @@ $.ajax({
         recipeDiv.append(recipeAnchor);
         $('#recipes').append(recipeDiv)
 
-        // recipePic.append(recipeDiv)
-        // recipeTitle.append(recipeDiv)
-        // // recipeDiv.append(#recipies)
-        // $('#recipes').append(recipeDiv)
-        // $(recipePic).appendTo(recipeDiv);
-        // $(recipeTitle).appendTo(recipeDiv);
-        // recipeAnchor.append(recipeDiv)
-        // $(recipeDiv).appendTo('#recipes');
-
-
-        console.log(edamamCall[i].recipe.label)
     }
     $('#recipes').css('display', 'block');
 });
@@ -293,5 +275,4 @@ $.ajax({
 } else {
     alert("You have not filled out the form correctly. Please try again!");
 }
-}); 
-
+});
