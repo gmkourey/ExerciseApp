@@ -1,5 +1,6 @@
 body{
     background-color: #d6e3fe;
+    font-family:  'Oswald', sans-serif;
 }
 #recipes {
     margin-bottom:30px;
@@ -8,7 +9,6 @@ body{
     background: #9d5c63;
     height: 50px;
 }
-/* body{ */
 #form1{
     display: none;
     color: rgb(15, 97, 15);
@@ -16,8 +16,8 @@ body{
     border-radius: 10px;
     margin-top:50px;
 }
-/* testing for a loading icon */
-body{
+
+body {
     background-color: #584b53;
     min-height:100vh;
 }
@@ -29,13 +29,15 @@ footer{
     background-color: #9d5c63;
     margin: 0 0 5px 0;
 }
-/* .navbar.scrolling-navbar{
-    -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
-    -o-transition: background .5s ease-in-out,padding .5s ease-in-out;
-    transition: background .5s ease-in-out,padding .5s ease-in-out;
-    padding-top: 12px;
-    padding-bottom: 12px;
-} */
+.fab{
+    color:#584b53;
+}
+.title {
+    margin-bottom: 0px;
+    font-size: 60px;
+    padding:10px;
+    
+}
 .tales {
     width: 100%;
 
@@ -65,6 +67,8 @@ footer{
 }
 #goals {
     text-align:center;
+    border-radius: 10px;
+    background-color: #9d5c63;
 }
 #macroChart {
     width:300px !important;
@@ -103,6 +107,7 @@ height: 200px;
     white-space: nowrap;
     margin-top:25px;
 }
+
 .card-img-top {
     height:295px;
 }
@@ -138,6 +143,7 @@ height: 200px;
 body::-webkit-scrollbar { 
     display: none; 
 }
+
 .result-titles {
     text-align:center;
     margin-bottom:25px;
