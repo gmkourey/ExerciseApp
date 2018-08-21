@@ -1,80 +1,81 @@
-# Project Title
+# Project Title: Work in Progress: Your body, Your life.
 
-One Paragraph of project description goes here
+This application was developed by: Brogan Stich, Delphine Urubera, Grace Houghton Andrizzi, Grant Kourey, and Peter MacDonnell
+
+Work in Progress: Your body, Your life is an application designed to provide a pathway for users to achieve their fitness goals. We do this by allowing the user to input information about themselves. We assess their current fitness needs and provide  a tailored path to reach their goals.  
+
+
+## Technologies Used: 
+
+APIS:
+	* Youtube API: to provide fitness videos tailored to your goals. *Edamam API: nutritional database to provide custom recipe
+	
+CDN:
+	*Chart.js
+	*Material Bootstrap by design
+	*Font Awesome
+	*Popper.js
+	*Google Fonts
+	*Jquery
+	*Specialty Verbal: David, V, Ray, and Dani. 
+	
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+All you need to enjoy our web application is a computer, browser, and to know basic facts about yourself such as height, weight, age, and sex.
 
-### Prerequisites
 
-What things you need to install the software and how to install them
+## Process: 
+* Upon page load, user selects fitness goal
 
-```
-Give examples
-```
+![Step 1](assets/images/Step_1.png)
 
-### Installing
+* User inputs personal information onto form: 
+![Step 2](assets/images/Step2.png)
 
-A step by step series of examples that tell you how to get a development env running
+* The App returns your resting metabolic rate and Macronutrients
+![Step 3](assets/images/Step3.png)
 
-Say what the step will be
+* The App returns custom fitness videos
+![Step 4](assets/images/Step4.png)
 
-```
-Give the example
-```
+* The App returns custom recipes
+![Step 5](assets/images/Step5.png)
 
-And repeat
 
-```
-until finished
-```
+## Challenges
+* Material Bootstrap was a challenge to work with. The built in styling was difficult to understand.  Writing over certain inherit styling proved to be difficult during the process. 
 
-End with an example of getting some data out of the system or using it for a little demo
+* Using the front-end to try to access a back end data-server was difficult.  We needed to use a thrid party to be able to accomplish this. 
 
-## Running the tests
+## Future Developments:
 
-Explain how to run the automated tests for this system
+* Integrating google maps to provide gyms, hikes, etc.
+* Allow data persistence to have users progress tracked over time. (create account, etc.)
+* Integrating the entire Edamam database to utilize personal recipes.
+* Have suggestions to eat based on what you have in your fridge and how many macrosnutrient you have left. 
 
-### Break down into end to end tests
 
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+**Brogan Stich** - 
+https://github.com/ad-victoriam-101
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+**Delphine Urubera** -
+https://github.com/delphine18
+
+**Grace Houghton Andrizzi** -
+https://github.com/adorkwithaspork
+
+
+**Grant Kourey** -
+https://github.com/gmkourey
+
+
+**Peter MacDonnell** -
+https://github.com/PeterMacDonnell
+
 
 ## License
 
@@ -82,6 +83,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+Hat tip to:
+* David Hallinan
+* Vaibhav Tank
+* Dani Gellis
+* Ray
