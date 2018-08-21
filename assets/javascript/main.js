@@ -242,37 +242,49 @@ var searchTerms = [lowFat, highProtein, lowCarb];
 $.ajax({
     url: "https://cors-anywhere.herokuapp.com/" + "https://api.edamam.com/search?q=" + searchTerms + "&app_id=618ffb44&app_key=70e58eb1b0363201c44e518f1cd8b7f6",
     method: "GET"
-}).then(function(response) {
+}).then(function (response) {
 
     edamamCall = response.hits;
     console.log(response)
-    for(var i = 0; i < edamamCall.length; i++) {
+    for (var i = 0; i < edamamCall.length; i++) {
         var recipeDiv = $('<div>');
         recipeDiv.attr('id', 'receipeInfo' + i);
-        recipeDiv.attr('class', 'card');
+        recipeDiv.attr('class', 'card rounded');
         recipeDiv.attr('style', 'width: 18rem;');
 
+        var recipeAnchor = $('<a>')
+        recipeAnchor.attr('href', edamamCall[i].recipe.url);
+        recipeAnchor.attr('target', '_blank');
+        console.log("url", edamamCall[i].recipe.url)
+
         var recipePic = $('<img>');
-        recipePic.attr('class', 'card-img-top')
-        recipePic.attr('src',edamamCall[i].recipe.image);
+        recipePic.attr('class', 'card-img-top rounded')
+        recipePic.attr('src', edamamCall[i].recipe.image);
         recipePic.attr('alt', 'pic of food');
+        recipeAnchor.append(recipePic);
 
-        var recipeTitleDiv = $('<div>');
-        recipeTitleDiv.attr('class', 'card-body');
-        recipeTitleText = $('<p>');
-        recipeTitleText.attr('class', 'card-text');
-        recipeTitleText = $('<h3>');
-        recipeTitleText.text(edamamCall[i].recipe.label);
 
-        $(recipeTitleText).appendTo(recipeTitleDiv);
-        $(recipePic).appendTo(recipeDiv);
-        $(recipeTitleDiv).appendTo(recipeDiv);
-        $(recipeDiv).appendTo('#recipes');
-        
+        var recipeTitle = $('<h3>');
+        recipeTitle.attr('class', 'card-text text-center text-wrap');
+        recipeTitle.text(edamamCall[i].recipe.label);
+        recipeAnchor.append(recipeTitle);
+
+        recipeDiv.append(recipeAnchor);
+        $('#recipes').append(recipeDiv)
+
+        // recipePic.append(recipeDiv)
+        // recipeTitle.append(recipeDiv)
+        // // recipeDiv.append(#recipies)
+        // $('#recipes').append(recipeDiv)
+        // $(recipePic).appendTo(recipeDiv);
+        // $(recipeTitle).appendTo(recipeDiv);
+        // recipeAnchor.append(recipeDiv)
+        // $(recipeDiv).appendTo('#recipes');
+
 
         console.log(edamamCall[i].recipe.label)
     }
-    $('#recipes').css('display', 'block'); 
+    $('#recipes').css('display', 'block');
 });
 
 } else {
