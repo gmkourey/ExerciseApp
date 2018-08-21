@@ -77,13 +77,6 @@ footer{
     text-align:center;
     color: #fef5ef;
 }
-#BMIinfo {
-    display:none;
-    text-align:center;
-    color: #fef5ef;
-    float:right;
-    margin-top:150px;
-}
 
 /* .recipes {
 width: 200px;
@@ -107,11 +100,13 @@ height: 200px;
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
+    margin-top:15px;
 }
 #videos {
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
+    margin-top:25px;
 }
 
 .card-img-top {
@@ -150,3 +145,24 @@ body::-webkit-scrollbar {
     display: none; 
 }
 
+.result-titles {
+    text-align:center;
+    margin-bottom:25px;
+    font-size:40px;
+    display:none;
+}
+.nutrients {
+    font-family: 'Oswald', sans-serif;
+}
+#BMIinfo {
+    font-family: 'Oswald', sans-serif;
+    display:none;
+    text-align:center;
+    color: #fef5ef;
+    float:right;
+    margin-top:130px;
+}
+#BMIinfo h3 {
+    font-size:35px;
+    margin-bottom:20px;
+}
