@@ -2,13 +2,14 @@
 
 This application was developed by: Brogan Stich, Delphine Urubera, Grace Houghton Andrizzi, Grant Kourey, and Peter MacDonnell
 
-Work in Progress: Your body, Your life is an application designed to provide a pathway for users to achieve their fitness goals. We do this by allowing the user to input information about themselves. We assess their current fitness needs and provide  a tailored path to reach their goals.  
+Work in Progress: Your body, Your life is an application designed to provide a pathway for users to achieve their fitness goals. We do this by allowing the user to input information about themselves. We assess their current fitness needs and provide a tailored path to reach their goals.  
 
 
 ## Technologies Used: 
 
 APIS:
-	* Youtube API: to provide fitness videos tailored to your goals. *Edamam API: nutritional database to provide custom recipe
+	* Youtube API: to provide fitness videos tailored to your goals. 
+    *Edamam API: nutritional database to provide custom recipe
 	
 CDN:
 	*Chart.js
@@ -48,16 +49,19 @@ All you need to enjoy our web application is a computer, browser, and to know ba
 
 * Using the front-end to try to access a back end data-server was difficult.  We needed to use a thrid party to be able to accomplish this. 
 
+* Github. Trials and tribulations during the entire duration of our project. 
+
 ## Future Developments:
 
-* Integrating google maps to provide gyms, hikes, etc.
-* Allow data persistence to have users progress tracked over time. (create account, etc.)
+* Integrating google maps to provide gyms, hikes, and other fitness mapables. 
+* Use data persistence properly to have users progress tracked over time. (create account, etc.)
 * Integrating the entire Edamam database to utilize personal recipes.
-* Have suggestions to eat based on what you have in your fridge and how many macrosnutrient you have left. 
+* Intergrate an easy food traker using other APIS.
+* Create suggestions on what to eat based on what you have in your fridge and how many macrosnutrient you have left. 
 
 
 
-## Authors
+## Authors -- The Fab 5
 
 **Brogan Stich** - 
 https://github.com/ad-victoriam-101
@@ -68,10 +72,8 @@ https://github.com/delphine18
 **Grace Houghton Andrizzi** -
 https://github.com/adorkwithaspork
 
-
 **Grant Kourey** -
 https://github.com/gmkourey
-
 
 **Peter MacDonnell** -
 https://github.com/PeterMacDonnell
